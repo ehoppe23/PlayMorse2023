@@ -490,8 +490,8 @@ const AlphabetRacePractice = forwardRef((props, ref) => {
                 </div>
                 <div style={{
                     position: 'absolute',
-                    left: '2vw',
-                    top: '9vh',
+                    left: '1.6vw',
+                    top: '13vh',
                     fontSize: '7vh',
                     pointer: 'default',
                     userSelect: 'none',
