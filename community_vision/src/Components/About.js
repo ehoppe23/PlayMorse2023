@@ -25,7 +25,7 @@ const About = forwardRef((props, ref) => {
     <div style={{
       // the inital styles of the page
       position: 'relative',
-      marginTop: '-3vh',
+      marginTop: '-6vh',
       height: '90vh',
       width: '100vw',
       color: fontColor,
