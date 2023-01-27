@@ -457,43 +457,41 @@ const towerStack = forwardRef((props, ref) => {
                 </div>
 
                 <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={vegdahl} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={vegdahl} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'hidden'}} />
+                    <img src={vegdahl} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
                  </Grid> 
 
-           
 
                     <Grid>
-                    <img src={tribelhorn} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={tribelhorn} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={tribelhorn} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
                 </Grid>
                 <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={tribelhorn} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
                     </Grid>
-                    <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    </Grid>
-                    <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
-                    </Grid>
+             
+                
 
                 <div>
 
