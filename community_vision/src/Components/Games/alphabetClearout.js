@@ -30,6 +30,9 @@ import pattyTS from './pattyTS.png'
 import tomatoTS from './tomatoTS.png'
 import bunbottom from './bunbottom.png'
 import buntop from './buntop.png'
+import vegdahl from './vegdahl.jpg'
+import tammy from './vandegri.jpg'
+import tribelhorn from './tribelhorn-benjamin.jpg'
 import burgerIcon from './burgerIcon.png' //for side display
 
 var textIndex = 0;
@@ -341,7 +344,7 @@ const towerStack = forwardRef((props, ref) => {
                                             marginBottom: '0vh',
                                             fontSize: '8vh',
                                             zIndex: '10' 
-                                        }}>You completed all five burgers!
+                                        }}>Congratulations, you cleared the entire alphabet!!
                                         </h1>
                                         <br></br>
                                     </Card>
@@ -453,13 +456,44 @@ const towerStack = forwardRef((props, ref) => {
                     </Container>
                 </div>
 
-                <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'right', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
-                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
+                <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
+                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={vegdahl} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                 </Grid> 
+
+           
+
+                    <Grid>
+                    <img src={tribelhorn} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
                 </Grid>
+                <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
+                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={tribelhorn} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    </Grid>
+                    <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
+                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    </Grid>
+                    <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
+                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                    </Grid>
 
                 <div>
 
