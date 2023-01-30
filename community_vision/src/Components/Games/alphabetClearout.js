@@ -66,9 +66,21 @@ function updateTutorial() {
 }
 
 var t;
-//tower.push(x) to add to the tower
-var tower = [];
-var burgerList = []; //never will contain anything, just to hold length bc react is finnicky
+//Ids of HTML elements to make letters visible/invisible
+var alphabetIds = ['letterA','letterB','letterC','letterD','letterE','letterF','letterG','letterH','letterI','letterJ', 'letterK','letterL','letterM','letterN','letterO','letterP','letterQ','letterR','letterS','letterT','letterU','letterV','letterW','letterX','letterY','letterZ',]
+var alphabetDone =  new Array(26).fill(false);
+//helper function to turn typed input into an ID
+function getLetID(letter){
+    var asciiCode = letter.charCodeAt(0); //find ASCII
+    if(asciiCode >= 65 && asciiCode <= 90 && !alphabetDone[65-asciiCode]){
+        alphabetDone[65-asciiCode] = true; //add to completed letters
+        return alphabetIds[65-asciiCode];
+    } else {
+        return ' '; 
+    }
+}
+
+
 //Main function - returns the html that is the webpage
 const towerStack = forwardRef((props, ref) => {
     
@@ -78,18 +90,12 @@ const towerStack = forwardRef((props, ref) => {
         history.push("/GamesThemes");
     }
 
-    //using index to manage array length helps manage reset on page out
-    var [index, setIndex] = useState(0); //Use state resets on page out automatically
-    tower.length = index; //connects useState to tower's length
-    var [burgers, setBurgers] = useState(0); //same idea but with burger icons
-    burgerList.length = burgers; //array is empty, but had to do this bc react wasn't chill about a normal var
+   //Manage how many letters have already been cleared by the user
+   var [lettersCleared, setLettersCleared] = useState(0); //Use state resets on page out automatically
+   var lettersLeft = 26 - lettersCleared;
+   var [input, setInput] = React.useState('');  //reads input in morse
+   var output = morseToChar(input);  //converts morse into char
 
-    //Ids of the HTML elements that need to be made visible/invisible
-    var burgerIds = ['burger1','burger2', 'burger3', 'burger4', 'burger5']; //icons
-    var towerIds = ['stack1', 'stack2', 'stack3', 'stack4', 'stack5']; //main burger elements
-
-    var [input, setInput] = React.useState('');  //reads input in morse
-    var output = morseToChar(input);  //converts morse into char
 
     //setup stuff:
     const [volume, setVolume] = useState(() => initial('volume'));
@@ -109,49 +115,21 @@ const towerStack = forwardRef((props, ref) => {
         dotSound,
         { volume: volume / 100 }
     );
-    const fSize = size + 'vh';
     const tfSize = (size - 7) + "vh"; //slightly smaller for sake of tower
     const sfSize = size / 3 + 'vh';  //size comes from settings page value
     var [startScreen, setStartScreen] = useState(true);
     var [endScreen, setEndScreen] = useState(false); //main burger completion
-    var [endScreen2, setEndScreen2] = useState(false); //5 burgers completed
 
     //Custom Timeout
     //adapted from sandboxWords
     clearTimeout(t);
-    t = setTimeout(function(){
-        if(output != ' '){ //only valid morse
-        //index resets on page out (found example in 1,2 hit)
-        setIndex(prevState => prevState + 1); //update tower height
-        tower[index] = output; //update tower
-        document.getElementById(towerIds[tower.length - 1]).style.visibility = "hidden"; //make tower element visible
-        //^EDITED to 'hidden' to hide burger for alphabet clearout. will delete soon
+    t = setTimeout(function(){ //resets on page out (found example in 1,2 hit)
+        var letID = getLetID(output);
+        if(letID != ' '){ //only valid morse LETTERS
+            //document.getElementById(letID).style.visibility = "hidden"; //make element invisible
+            setLettersCleared(prevState => prevState + 1); //update completed letters
         }
         setInput(''); //reset morse input
-
-        if(tower.length == 5){ //This is where endscreen is triggered
-            if(burgerList.length == 4){ //check endscreen 2 (5 burgers complete)
-                //make sure final elements become visible
-                document.getElementById(towerIds[4]).style.visibility = "visible";
-                document.getElementById('burger5').style.visibility = "visible";
-                
-                setEndScreen2(true); //trigger endscreen visuals
-
-                //reset vars
-                setBurgers(0);
-                setIndex(0);
-            } else {
-                document.getElementById(towerIds[4]).style.visibility = "hidden"; //make sure final element becomes visible
-                //^EDITED to 'hidden' to hide top bun for alphabet clearout. will delete soon
-                setEndScreen(true); //trigger endscreen visuals
-                
-                setIndex(0); //reset stack
-
-                //update burger icons
-                setBurgers(prevState => prevState + 1);
-                document.getElementById(burgerIds[burgers]).style.visibility = "visible"; 
-            }
-        }
     }, resetTimer);
 
     resetInputLength(input, setInput);
@@ -166,18 +144,9 @@ const towerStack = forwardRef((props, ref) => {
                 setStartScreen(false);
             } else if (endScreen ) {
                 setEndScreen(false); //exit end screen
-                setIndex(0); //reset tower
-                for (let i = 0; i < 5; i++){ //reset tower visuals
-                    document.getElementById(towerIds[i]).style.visibility = "hidden";
-                }
-            } else if (endScreen2){
-                setEndScreen2(false); //exit end screen
-                setEndScreen(false); //make sure other screen wasn't triggered
-                setIndex(0); //reset tower
-                setBurgers(0); //reset icons
-                for(let i = 0; i < 5; i++){ //clear all visuals
-                    document.getElementById(burgerIds[i]).style.visibility = "hidden";
-                    document.getElementById(towerIds[i]).style.visibility = "hidden";
+                setLettersCleared(0); //reset tower
+                for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
+                    document.getElementById(alphabetIds[i]).style.visibility = "visible";
                 }
             } else {
                 setInput(input + '•');
@@ -188,20 +157,11 @@ const towerStack = forwardRef((props, ref) => {
         } else if (evt.keyCode === 13) { //press enter
             if (startScreen) { //generalized so both keys start game
                 setStartScreen(false);
-            } else if (endScreen) {
-                setEndScreen(false);
-                setIndex(0);
-                for (let i = 0; i < 5; i++){
-                    document.getElementById(towerIds[i]).style.visibility = "hidden";
-                }
-            } else if (endScreen2){
-                setEndScreen2(false); //exit end screen
-                setEndScreen(false); //make sure other screen wasn't triggered
-                setIndex(0); //reset tower
-                setBurgers(0); //reset icons
-                for(let i = 0; i < 5; i++){ //clear all visuals
-                    document.getElementById(burgerIds[i]).style.visibility = "hidden";
-                    document.getElementById(towerIds[i]).style.visibility = "hidden";
+            } else if (endScreen ) {
+                setEndScreen(false); //exit end screen
+                setLettersCleared(0); //reset tower
+                for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
+                    document.getElementById(alphabetIds[i]).style.visibility = "visible";
                 }
             } else {
                 setInput(input + '-');
@@ -309,68 +269,6 @@ const towerStack = forwardRef((props, ref) => {
                 }
 
             </Transition>
-            <Transition 
-                items={endScreen2 /* EndScreen2 - 5 burgers complete */}
-                duration={500}
-                from={{ opacity: 0 }}
-                enter={{ opacity: 1 }}
-                leave={{ opacity: 0 }}>
-                {toggle =>
-                    toggle
-                        ? props => <div style={{
-                            position: 'absolute',
-                            width: '100vw',
-                            height: '90vh',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            zIndex: 11,
-                            ...props
-                        }}>
-                            <div style={{
-                                position: 'absolute',
-                                width: '100%',
-                                height: '100%',
-                                backgroundColor: 'black',
-                                opacity: 0.7
-                            }} />
-                            <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
-                                <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:11 }}>
-                                    <Card>
-                                        <h1 style={{
-                                            marginBottom: '0vh',
-                                            fontSize: '8vh',
-                                            zIndex: '10' 
-                                        }}>You completed all five burgers!
-                                        </h1>
-                                        <br></br>
-                                    </Card>
-                                </Grid>
-                                <br />
-                                <Grid item style={{ userSelect: 'none' }}>
-                                    <Card>
-                                        <button id = "end2" style={{ fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer' }}
-                                                onMouseDown={function () { //same code as space/enter
-                                                    if (endScreen2) { 
-                                                        setIndex(0);
-                                                        setBurgers(0);
-                                                        for(let i = 0; i < 5; i++){
-                                                            document.getElementById(burgerIds[i]).style.visibility = "hidden";
-                                                            document.getElementById(towerIds[i]).style.visibility = "hidden";
-                                                        }                     
-                                                        setEndScreen(false);
-                                                        setEndScreen2(false);
-                                                    }
-                                                }}>
-                                            Press any key to restart the game
-                                        </button>
-                                    </Card>
-                                </Grid>
-                            </Grid>
-                        </div>
-                        : props => <div />
-                }
-            </Transition>
             
             <Transition 
                 items={endScreen /* EndScreen - burger finished */}
@@ -415,10 +313,13 @@ const towerStack = forwardRef((props, ref) => {
                                         <button id = "end" style={{ fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer' }}
                                                 onMouseDown={function () { //same code as space/enter
                                                     if (endScreen) {       
-                                                        setIndex(0);
+                                                        setLettersCleared(0);  
+                                                        alphabetDone =  new Array(26).fill(false);
+                                                        /* TODO set all letters to hidden
                                                         for (let i = 0; i < 5; i++){
                                                             document.getElementById(towerIds[i]).style.visibility = "hidden";
-                                                        }               
+                                                        } 
+                                                         */ 
                                                         setEndScreen(false);
                                                     }
                                                 }}>
@@ -454,7 +355,7 @@ const towerStack = forwardRef((props, ref) => {
                 </div>
 
                 <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'right', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
+                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden' /* TODO remove all in this grid */}} />
                     <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
                     <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
                     <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'4.5%', height:'4.5%', visibility: 'hidden'}} />
@@ -464,24 +365,16 @@ const towerStack = forwardRef((props, ref) => {
                 <div>
 
                     <animated.h1 id = "output" style={{ //HIDDEN display of character
-                        //Hid all three of these to create space for the towers
+                        //Hid all three of these to create space
                         lineHeight: 0,
                         color: fontColor,
                         fontSize: tfSize, //smaller font slightly for tower 
                         minHeight: '90%',
                         display: 'none',
                     }}>{output}</animated.h1>
-                   
-                    <Grid container direction='column'  position= 'relative' style={{ zIndex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
-                    <img src={buntop} id = "stack5" alt="top bun of burger" style = {{ width:'27%', height:'8%', visibility: 'hidden', marginTop: '9%', zIndex:3}} />
-                    <img src={tomatoTS} id = "stack4" alt="tomato" style = {{ width:'27%', height:'10%', visibility: 'hidden', marginTop: '-3%', zIndex:2}} />
-                    <img src={cheeseTS} id = "stack3" alt="cheese" style = {{ width:'27%', height:'10%', visibility: 'hidden', marginTop: '-3%', zIndex:1}} />
-                    <img src={pattyTS} id = "stack2" alt="burger patty" style = {{width:'27%', height:'10%', visibility: 'hidden', marginTop: '-3%', zIndex:0}} />
-                    <img src={bunbottom} id = "stack1" alt="bottom bun of burger" style = {{ width:'27%', height:'8%', visibility: 'hidden', marginTop: '-3%', marginBottom: '-7%'}} />
-                </Grid>
 
                     <animated.h1 id="input" style={{ //HIDDEN display of morse input
-                        //an attempt to reorganize the screen to get space for the tower
+                        //an attempt to reorganize the screen to get space 
                         lineHeight: 0,
                         color: fontColor,
                         fontSize: sfSize,
@@ -514,16 +407,27 @@ const towerStack = forwardRef((props, ref) => {
                  
 
                     <animated.h1 id="testing" style={{ //Test element to see internal functions
-                        //displays most recent letter, the current height, and total number of burgers
+                        //displays # of letters successfully cleared
+                        lineHeight: 0,
+                        color: fontColor,
+                        fontSize: sfSize,
+                        right: '88%',
+                        bottom: '40%',
+                        transform: 'translate(50%,50%)',
+                        position: 'absolute'//,
+                        //display: 'none' //comment out to use
+                    }}>{'Did: ' + lettersCleared}</animated.h1>
+                    <animated.h1 id="testing" style={{ //Test element to see internal functions
+                        //displays # of letters remaining
                         lineHeight: 0,
                         color: fontColor,
                         fontSize: sfSize,
                         right: '88%',
                         bottom: '30%',
                         transform: 'translate(50%,50%)',
-                        position: 'absolute',
-                        display: 'none' //comment out to use
-                    }}>{tower[tower.length - 1] + ' ' + tower.length + ' ' + burgers}</animated.h1>
+                        position: 'absolute'//,
+                        //display: 'none' //comment out to use
+                    }}>{lettersLeft}</animated.h1>
                 
                     </Grid>
                 </div>
