@@ -114,7 +114,7 @@ const towerStack = forwardRef((props, ref) => {
         { volume: volume / 100 }
     );
     const tfSize = (size - 7) + "vh"; //slightly smaller for sake of tower
-    const sfSize = size / 3 + 'vh';  //size comes from settings page value
+    const sfSize = size / 2.5 + 'vh';  //size comes from settings page value
     var [startScreen, setStartScreen] = useState(true);
     var [endScreen, setEndScreen] = useState(false); //main burger completion
 
@@ -352,41 +352,48 @@ const towerStack = forwardRef((props, ref) => {
                     </Container>
                 </div>
 
-                
+               
+
+
+               
+                    
                 
                 <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={vegdahl} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'hidden'}} />
-                    <img src={vegdahl} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    
+                    <animated.h1 id="letterA" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'A'}</animated.h1>
+                    <animated.h1 id="letterB" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'B'}</animated.h1>
+                    <animated.h1 id="letterC" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'C'}</animated.h1>
+                    <animated.h1 id="letterD" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'D'}</animated.h1>
+                    <animated.h1 id="letterE" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'E'}</animated.h1>
+                    <animated.h1 id="letterF" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'F'}</animated.h1>
+                    <animated.h1 id="letterG" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'G'}</animated.h1>
+                    <animated.h1 id="letterH" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'H'}</animated.h1>
+                    <animated.h1 id="letterI" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'I'}</animated.h1>
+                 
                  </Grid> 
-
-
-                    <Grid>
-                    <img src={tribelhorn} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={tribelhorn} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
+                    <animated.h1 id="letterJ" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'J'}</animated.h1>
+                    <animated.h1 id="letterK" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'K'}</animated.h1>
+                    <animated.h1 id="letterL" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'L'}</animated.h1>
+                    <animated.h1 id="letterM" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'M'}</animated.h1>
+                    <animated.h1 id="letterN" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'N'}</animated.h1>
+                    <animated.h1 id="letterO" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'O'}</animated.h1>
+                    <animated.h1 id="letterP" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'P'}</animated.h1>
+                    <animated.h1 id="letterQ" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'Q'}</animated.h1>
+                    <animated.h1 id="letterR" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'R'}</animated.h1>
+                    
                 </Grid>
                 <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
-                    <img src={burgerIcon} id = "burger5" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger1" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={tammy} id = "burger4" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger3" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
-                    <img src={burgerIcon} id = "burger2" alt="burger icon" style = {{ width:'6.5%', height:'4.5%', visibility: 'visible'}} />
+                    
+                    <animated.h1 id="letterS" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'S'}</animated.h1>
+                    <animated.h1 id="letterT" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'T'}</animated.h1>
+                    <animated.h1 id="letterU" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'U'}</animated.h1>
+                    <animated.h1 id="letterV" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'V'}</animated.h1>
+                    <animated.h1 id="letterW" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'W'}</animated.h1>
+                    <animated.h1 id="letterX" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'X'}</animated.h1>
+                    <animated.h1 id="letterY" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'Y'}</animated.h1>
+                    <animated.h1 id="letterZ" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'Z'}</animated.h1>
+
                     </Grid>
 
                 <div>
@@ -414,20 +421,20 @@ const towerStack = forwardRef((props, ref) => {
                         //determine where current letter should display on screen
                         lineHeight: 0,
                         right: '50%',
-                        bottom: '65%',
+                        bottom: '25%',
                         transform: 'translate(50%,50%)',
                         position: 'absolute',
-                        color: fontColor,
+                        color: 'fontColor',
                         fontSize: tfSize //smaller font slightly for tower  
                     }}>{output} </animated.h1>
 
                     <animated.h1 id="input" position= 'relative' style={{ //Display Morse
                         //determines where current morse input should display on screen
                         lineHeight: 0,
-                        color: fontColor,
+                        color: 'fontColor',
                         fontSize: sfSize,
                         right: '50%',
-                        bottom: '62%',
+                        bottom: '22%',
                         transform: 'translate(50%,50%)',
                         position: 'absolute'
                     }}>{input}</animated.h1>
