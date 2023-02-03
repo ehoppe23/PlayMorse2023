@@ -65,7 +65,7 @@ function updateTutorial() {
 
 var t;
 //Ids of HTML elements to make letters visible/invisible
-var alphabetIds = ['letterA','letterB','letterC','letterD','letterE','letterF','letterG','letterH','letterI','letterJ', 'letterK','letterL','letterM','letterN','letterO','letterP','letterQ','letterR','letterS','letterT','letterU','letterV','letterW','letterX','letterY','letterZ',]
+var alphabetIds = ['letterA','letterB','letterC','letterD','letterE','letterF','letterG','letterH','letterI','letterJ', 'letterK','letterL','letterM','letterN','letterO','letterP','letterQ','letterR','letterS','letterT','letterU','letterV','letterW','letterX','letterY','letterZ']
 var alphabetDone =  new Array(26).fill(false);
 //helper function to turn typed input into an ID
 function getLetID(letter){
@@ -128,6 +128,10 @@ const towerStack = forwardRef((props, ref) => {
             setLettersCleared(prevState => prevState + 1); //update completed letters
         }
         setInput(''); //reset morse input
+        if(lettersCleared == 26){
+            setEndScreen(true); //trigger endscreen visuals
+            setLettersCleared(0); //reset stack
+        }
     }, resetTimer);
 
     resetInputLength(input, setInput);
@@ -313,11 +317,10 @@ const towerStack = forwardRef((props, ref) => {
                                                     if (endScreen) {       
                                                         setLettersCleared(0);  
                                                         alphabetDone =  new Array(26).fill(false);
-                                                        /* TODO set all letters to hidden
-                                                        for (let i = 0; i < 5; i++){
-                                                            document.getElementById(towerIds[i]).style.visibility = "hidden";
-                                                        } 
-                                                         */ 
+                                                        //uncomment when all IDs are set up
+                                                        /* for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
+                                                            document.getElementById(alphabetIds[i]).style.visibility = "visible";
+                                                        } */  
                                                         setEndScreen(false);
                                                     }
                                                 }}>
