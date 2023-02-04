@@ -1,7 +1,6 @@
 /* 
 Adventure Game
 Main game file - in progress
-
 @Author: Emily, Natalie, Aron
 */
 
@@ -258,14 +257,10 @@ const adventureGame = forwardRef((props, ref) => {
         <div style={{
             backgroundImage: `url(${backgroundPicture})`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundSize: '80%',
-            // width: '100vw',
-            // height: '100vh',
-            display: 'grid',
-            gridTemplate: '8fr 8fr / 1fr',
-            gridTemplateAreas: '"top" "middle" "bottom'
+            backgroundSize: "contain",
+            width: "100vw",
+            height: "66vh"
         }}>
             
             <Transition //Tutorial transition, "Start Screen"
@@ -368,61 +363,26 @@ const adventureGame = forwardRef((props, ref) => {
                 }
             </Transition>
 
-            <Transition> //CabScreen
+            <Transition> {/*Cab Screen*/}
                 items = {cabScreen};
             </Transition>
 
-            <Transition> //FarmScreen
+            <Transition> {/*Farm Screen*/}
                 items = {farmScreen};
             </Transition>
 
-            <Transition> //HouseScreen
+            <Transition> {/*House Screen*/}
                 items = {houseScreen};
+
             </Transition>
 
-            <Transition> //ForestScreen
+            <Transition> {/*Forest Screen*/}
                 items ={forestScreen}
             </Transition>
 
-            <Transition> //BarnScreen
+            <Transition> {/*Barn Screen*/}
                 items = {barnScreen};
             </Transition>
-
-            <div style={{gridArea: 'top', position: 'absolute'}}>
-                <Container>
-                    <Link className='nav-link' to="/GamesThemes">
-                        <button style={{
-                            height: '90%',
-                            width: '100%',
-                            fontSize: '4vh',
-                            fontWeight: 800,
-                            userSelect: 'none',
-                            cursor: 'pointer',
-                        }}>Back</button>
-                    </Link>              
-                    <Grid item>
-                        <div style={{
-                            position: 'absolute',
-                            left: '1vw',
-                            top: '9vh',
-                            fontSize: '3vh',
-                            pointer: 'default',
-                            userSelect: 'none',
-                            color: fontColor
-                        }}>
-                            <p>
-                                Current Word: {currentWord}
-                            </p>
-                            <p>
-                                Current Score: {gemDisplay}
-                            </p>
-                            <p>
-                                Current Stage: {currentScreen}
-                            </p>
-                        </div>
-                    </Grid>
-                </Container>
-            </div>
 
             <Transition //End Screen
                 items={endScreen}
@@ -500,20 +460,60 @@ const adventureGame = forwardRef((props, ref) => {
                 }
             </Transition>
 
-            <div style={{ gridArea: 'middle' }}>
-                <Container>
-                    <Grid container justify='center' spacing={0}>
-                        <Grid item xs={1}>
+            <div> {/*Back Button*/}
+                <Link className='nav-link' to="/GamesThemes">
+                        <button style={{
+                            width: '10%',
+                            fontSize: '4vh',
+                            fontWeight: 800,
+                            userSelect: 'none',
+                            cursor: 'pointer',
+                            marginLeft:"-88vw"
+                        }}>Back</button>
+                </Link>
+            </div>
+
+            <div> {/*Clear Button*/}
+                <button id = "clearButton" style = {{
+                        marginLeft:"-88vw",
+                        
+                        fontSize: "4vh",
+                        width: "10%",
+                        height: "90%",
+                        userSelect: "none",
+                        fontWeight: 800
+                    }}
+                    onMouseDown={function()
+                    {
+                        setWord("");
+                        document.getElementById("textbox").innerHTML = "&nbsp;";
+                        setWord("");
+                    }}>
+                        Clear
+                    </button>
+            </div>
+
+            <div> {/*Trackers*/}
+                <Grid item>
+                        <div style={{
+                            position: 'absolute',
+                            left: '1.4vw',
+                            top: '30vh',
+                            fontSize: '3vh',
+                            pointer: 'default',
+                            userSelect: 'none',
+                            color: fontColor
+                        }}>
+                            <p> Current Word: </p>
+                            <p> {currentWord} </p>
+                            <p> Current Score: </p>
+                            <p> {gemDisplay} </p>
+                            <p> Current Stage: </p>
+                            <p> {currentScreen} </p>
+                        </div>
+                        <div>
                             <p style={{
-                                lineHeight: 0,
-                                color: fontColor,
-                                fontSize: '10vh',
-                                pointer: 'default',
-                                userSelect: 'none'
-                            }}> &nbsp; </p>
-                        </Grid>
-                        <Grid item sm={10}>
-                            <p style={{
+                                marginTop: "48vh",
                                 lineHeight: 0,
                                 color: fontColor,
                                 fontSize: '10vh',
@@ -521,75 +521,59 @@ const adventureGame = forwardRef((props, ref) => {
                                 pointer: 'default',
                                 userSelect: 'none'
                             }}>{input}</p>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <p style={{
-                                lineHeight: 0,
-                                color: fontColor,
-                                fontSize: '10vh',
-                                pointer: 'default',
-                                userSelect: 'none'
-                            }}> &nbsp; </p>
-                        </Grid>
+                        </div>
                     </Grid>
-                    <Grid container justify='center' spacing={2}>
-                        <Grid item xs={4}>
-                            <Card>
-                                {/* button updates */}
-                                <CardActionArea>
-                                    <button id="dotButton" style={{
-                                        backgroundColor: dotButtonColor,
-                                        width: '100%',
-                                        height: '20vh',
-                                        cursor: 'pointer',
-                                        textAlign: 'center',
-                                        fontSize: '35vh',
-                                        color: fontColor,
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }} onMouseDown={function () {
-                                        setInput(input + '•');
-                                        playDot();
-                                        clearTimeout(t);
-                                        t = resetInputTime(t, input, setInput, resetTimer);
-                                    }}>
-                                        <span
-                                        >•
-                                        </span>
-                                    </button>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Card>
-                                <CardActionArea>
-                                    <button id="dashButton" style={{
-                                        backgroundColor: dashButtonColor,
-                                        width: '100%',
-                                        height: '20vh',
-                                        cursor: 'pointer',
-                                        textAlign: 'center',
-                                        fontSize: '35vh',
-                                        color: fontColor,
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }} onMouseDown={function () {
-                                        setInput(input + '-');
-                                        playDash();
-                                        clearTimeout(t);
-                                        t = resetInputTime(t, input, setInput, resetTimer);
-                                    }}>
-                                        -
-                                    </button>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
-                    </Grid>
-                </Container>
             </div>
-            
+
+            <div> {/*Morse Buttons*/}
+                <button id="dotButton" style={{
+                    position: "absolute",
+                    backgroundColor: dotButtonColor,
+                    top: "80vh",
+                    left: "20vw",
+                    width: '30%',
+                    height: '20vh',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    fontSize: '35vh',
+                    color: fontColor,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }} onMouseDown={function () {
+                    setInput(input + '•');
+                    playDot();
+                    clearTimeout(t);
+                    t = resetInputTime(t, input, setInput, resetTimer);
+                }}>
+                    <span
+                    >•
+                    </span>
+                </button>
+                
+                <button id="dashButton" style={{
+                    position: "absolute",
+                    backgroundColor: dashButtonColor,
+                    top: "80vh",
+                    left: "50vw",
+                    width: '30%',
+                    height: '20vh',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    fontSize: '35vh',
+                    color: fontColor,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }} onMouseDown={function () {
+                    setInput(input + '-');
+                    playDash();
+                    clearTimeout(t);
+                    t = resetInputTime(t, input, setInput, resetTimer);
+                }}>
+                    -
+                </button>
+            </div>
         </div>
     );
 })
