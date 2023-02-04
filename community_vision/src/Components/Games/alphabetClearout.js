@@ -69,10 +69,13 @@ var alphabetIds = ['letterA','letterB','letterC','letterD','letterE','letterF','
 var alphabetDone =  new Array(26).fill(false);
 //helper function to turn typed input into an ID
 function getLetID(letter){
-    var asciiCode = letter.charCodeAt(0); //find ASCII
-    if(asciiCode >= 65 && asciiCode <= 90 && !alphabetDone[65-asciiCode]){
-        alphabetDone[65-asciiCode] = true; //add to completed letters
-        return alphabetIds[65-asciiCode];
+    if(letter == ' '){
+         return ' ';
+        }
+   var asciiCode = letter.charCodeAt(0); //find ASCII
+    if(asciiCode >= 65 && asciiCode <= 90 && !alphabetDone[asciiCode-65]){
+        alphabetDone[asciiCode-65] = true; //add to completed letters
+        return alphabetIds[asciiCode-65];
     } else {
         return ' '; 
     }
@@ -124,13 +127,12 @@ const towerStack = forwardRef((props, ref) => {
     t = setTimeout(function(){ //resets on page out (found example in 1,2 hit)
         var letID = getLetID(output);
         if(letID != ' '){ //only valid morse LETTERS
-            //document.getElementById(letID).style.visibility = "hidden"; //make element invisible
+            document.getElementById(letID).style.visibility = "hidden"; //make element invisible
             setLettersCleared(prevState => prevState + 1); //update completed letters
         }
         setInput(''); //reset morse input
         if(lettersCleared == 26){
             setEndScreen(true); //trigger endscreen visuals
-            setLettersCleared(0); //reset stack
         }
     }, resetTimer);
 
@@ -146,6 +148,7 @@ const towerStack = forwardRef((props, ref) => {
                 setStartScreen(false);
             } else if (endScreen ) {
                 setEndScreen(false); //exit end screen
+                alphabetDone =  new Array(26).fill(false); //clear letter tracking
                 setLettersCleared(0); //reset tower
                 for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
                     document.getElementById(alphabetIds[i]).style.visibility = "visible";
@@ -161,6 +164,7 @@ const towerStack = forwardRef((props, ref) => {
                 setStartScreen(false);
             } else if (endScreen ) {
                 setEndScreen(false); //exit end screen
+                alphabetDone =  new Array(26).fill(false); //clear letter tracking
                 setLettersCleared(0); //reset tower
                 for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
                     document.getElementById(alphabetIds[i]).style.visibility = "visible";
@@ -304,7 +308,7 @@ const towerStack = forwardRef((props, ref) => {
                                             marginBottom: '0vh',
                                             fontSize: '8vh',
                                             zIndex: '10'
-                                        }}>5 letters inputted
+                                        }}>You cleared the whole alphabet!
                                         </h1>
                                         <br></br>
                                     </Card>
@@ -315,12 +319,11 @@ const towerStack = forwardRef((props, ref) => {
                                         <button id = "end" style={{ fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer' }}
                                                 onMouseDown={function () { //same code as space/enter
                                                     if (endScreen) {       
-                                                        setLettersCleared(0);  
-                                                        alphabetDone =  new Array(26).fill(false);
-                                                        //uncomment when all IDs are set up
-                                                        /* for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
+                                                        alphabetDone =  new Array(26).fill(false); //clear letter tracking
+                                                        setLettersCleared(0); //reset tower
+                                                        for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
                                                             document.getElementById(alphabetIds[i]).style.visibility = "visible";
-                                                        } */  
+                                                        }
                                                         setEndScreen(false);
                                                     }
                                                 }}>
@@ -357,7 +360,13 @@ const towerStack = forwardRef((props, ref) => {
 
                
 
-
+                <animated.h1 id="testing" style={{ //Test element to see internal functions
+                        //displays # of letters successfully cleared
+                        lineHeight: 0,
+                        color: fontColor,
+                        fontSize: sfSize + 10,
+                        //display: 'none' //comment out to use
+                    }}>{'Done: ' + lettersCleared + '\t\tLeft: ' + lettersLeft}</animated.h1>
                
                     
                 
@@ -401,7 +410,7 @@ const towerStack = forwardRef((props, ref) => {
 
                 <div>
 
-                    <animated.h1 id = "output" style={{ //HIDDEN display of character
+                    <animated.h1 id = "output" style={{ //HIDDEN display of character (when you remove these stuff breaks)
                         //Hid all three of these to create space
                         lineHeight: 0,
                         color: fontColor,
@@ -441,31 +450,6 @@ const towerStack = forwardRef((props, ref) => {
                         transform: 'translate(50%,50%)',
                         position: 'absolute'
                     }}>{input}</animated.h1>
-                 
-
-                    <animated.h1 id="testing" style={{ //Test element to see internal functions
-                        //displays # of letters successfully cleared
-                        lineHeight: 0,
-                        color: fontColor,
-                        fontSize: sfSize,
-                        right: '88%',
-                        bottom: '40%',
-                        transform: 'translate(50%,50%)',
-                        position: 'absolute'//,
-                        //display: 'none' //comment out to use
-                    }}>{'Did: ' + lettersCleared}</animated.h1>
-                    <animated.h1 id="testing" style={{ //Test element to see internal functions
-                        //displays # of letters remaining
-                        lineHeight: 0,
-                        color: fontColor,
-                        fontSize: sfSize,
-                        right: '88%',
-                        bottom: '30%',
-                        transform: 'translate(50%,50%)',
-                        position: 'absolute'//,
-                        //display: 'none' //comment out to use
-                    }}>{lettersLeft}</animated.h1>
-                
                     </Grid>
                 </div>
             </div>
