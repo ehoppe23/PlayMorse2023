@@ -19,6 +19,7 @@ import LearnWordMedium from './Components/Games/LearnWord/LearnWordMedium';
 import AlphabetNoHelp from "./Components/Games/NoHelpAlphabet";
 import SandboxLetters from "./Components/Games/SandboxLetters";
 import TowerStack from "./Components/Games/towerStack";
+import AlphabetClearout from "./Components/Games/alphabetClearout"
 import AdventureGame from "./Components/Games/adventureGame";
 import SandboxWords from "./Components/Games/SandboxWords";
 import SortedAlphabet from "./Components/Games/sorted";
@@ -127,6 +128,9 @@ function App() {
           </Route>
           <Route path="/towerStack">
             <TowerStack ref={currentRef}/>
+          </Route>
+          <Route path="/alphabetClearout">
+            <AlphabetClearout ref={currentRef}/>
           </Route>
           <Route path="/adventureGame">
             <AdventureGame ref={currentRef}/>
