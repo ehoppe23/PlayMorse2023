@@ -1,10 +1,10 @@
 /* 
 Tower Stack
-Main game file - in progress
+Main game file - close to completion, just needs polishing
 
 @Author: Emily Hoppe, Natalie Tashchuk
 Created: 10/12/22
-Updated: 11/13/22, 11/23/22,
+Last Updated: 2/8/23
 */
 
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
@@ -25,7 +25,7 @@ import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 //Natalie:
-import cheeseTS from './cheeseTS.png' //test image
+import cheeseTS from './cheeseTS.png' //images for burger tower
 import pattyTS from './pattyTS.png'
 import tomatoTS from './tomatoTS.png'
 import bunbottom from './bunbottom.png'
@@ -492,7 +492,7 @@ const towerStack = forwardRef((props, ref) => {
                         //determine where current letter should display on screen
                         lineHeight: 0,
                         right: '50%',
-                        bottom: '65%',
+                        bottom: '61%',
                         transform: 'translate(50%,50%)',
                         position: 'absolute',
                         color: fontColor,
@@ -505,7 +505,7 @@ const towerStack = forwardRef((props, ref) => {
                         color: fontColor,
                         fontSize: sfSize,
                         right: '50%',
-                        bottom: '62%',
+                        bottom: '58%',
                         transform: 'translate(50%,50%)',
                         position: 'absolute'
                     }}>{input}</animated.h1>
