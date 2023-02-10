@@ -1,7 +1,7 @@
 /* 
 Adventure Game
 Main game file - in progress
-@Author: Emily, Natalie, Aron
+@Author: Aron
 */
 
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
@@ -22,13 +22,18 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
 
-//Pictures!
+//Pictures Screen
 import cabImage from "./adventureGamePics/Cab.png";
 import InCabImage from "./adventureGamePics/InCab.png";
 import barnImage from "./adventureGamePics/Barn.jpg";
 import farmImage from "./adventureGamePics/Farm.png";
 import forestImage from "./adventureGamePics/Forest.jpg";
 import houseImage from "./adventureGamePics/House.jfif";
+
+//Pictures Objects
+import pigImage from "./adventureGamePics/pig.png"
+
+var ObjectIDs = ["pigID"];
 
 var textIndex = 0;
 var t;
@@ -97,6 +102,7 @@ const adventureGame = forwardRef((props, ref) => {
         dashSound,
         { volume: volume / 100 }
     );
+
     const [playDot] = useSound(
         dotSound,
         { volume: volume / 100 }
@@ -116,68 +122,84 @@ const adventureGame = forwardRef((props, ref) => {
     
     function checkCurrentWord() {
         //Don't know why switch doesn't work but a bunch of if's do.
-        if(currentWord === "TEST") {
-            setCurrentScreen("End");
-            setBackgroundPicture();
-            clearStage();
-            setEndScreen(true);
+        { /* Locations */
+            if(currentWord === "TEST") {
+                setCurrentScreen("End");
+                setBackgroundPicture();
+                clearStage();
+                setEndScreen(true);
+            }
+            if(currentWord === "CAB" || currentWord ==="TAXI") {
+                setCurrentScreen("Cab");
+                setBackgroundPicture(InCabImage);
+                clearStage();
+                setCabScreen(true);
+            }
+            if(currentWord === "FARM") {
+                setCurrentScreen("Farm");
+                setBackgroundPicture(farmImage);
+                clearStage();
+                setFarmScreen(true);
+            }
+            if(currentWord === "HOUSE") {
+                setCurrentScreen("House");
+                setBackgroundPicture(houseImage);
+                clearStage();
+                setHouseScreen(true);
+            }
+            if(currentWord === "FOREST") {
+                setCurrentScreen("Forest");
+                setBackgroundPicture(forestImage);
+                clearStage();
+                setForestScreen(true);
+            }
+            if(currentWord === "BARN") {
+                setCurrentScreen("Barn");
+                setBackgroundPicture(barnImage);
+                clearStage();
+                setBarnScreen(true);
+                if(!pig) {
+                    document.getElementById("pigID").style.visibility = "visible";
+                }
+            }
         }
-        if(currentWord === "CAB" || currentWord ==="TAXI") {
-            setCurrentScreen("Cab");
-            setBackgroundPicture(InCabImage);
-            clearStage();
-            setCabScreen(true);
+        { /* Objects */
+            if(currentWord === "PIG") {
+                if(!pig) {
+                    document.getElementById("pigID").style.visibility = "hidden";
+                    pigFound(true);
+                    setGems(gemScore + 1);
+                }
+                setWord("");
+            }
+            if(currentWord === "bed") {
+                bedFound(true);
+            }
+            if(currentWord === "cap") {
+                capFound(true);
+            }
+            if(currentWord === "cob") {
+                cobFound(true);
+            }
+            if(currentWord === "ham") {
+                hamFound(true);
+            }
+            if(currentWord === "dog") {
+                dogFound(true);
+            }
+            if(currentWord === "fan") {
+                fanFound(true);
+            }
+            if(currentWord === "guy") {
+                guyFound(true);
+            }
+            if(currentWord === "map") {
+                mapFound(true);
+            }
+            if(currentWord === "oak") {
+                oakFound(true);
+            }
         }
-        if(currentWord === "FARM") {
-            setCurrentScreen("Farm");
-            setBackgroundPicture(farmImage);
-            clearStage();
-            setFarmScreen(true);
-        }
-        if(currentWord === "HOUSE") {
-            setCurrentScreen("House");
-            setBackgroundPicture(houseImage);
-            clearStage();
-            setHouseScreen(true);
-        }
-        if(currentWord === "FOREST") {
-            setCurrentScreen("Forest");
-            setBackgroundPicture(forestImage);
-            clearStage();
-            setForestScreen(true);
-        }
-        if(currentWord === "BARN") {
-            setCurrentScreen("Barn");
-            setBackgroundPicture(barnImage);
-            clearStage();
-            setBarnScreen(true);
-        }
-        
-        // switch(currentWord) {
-        //     case "TEST":
-        //         clearStage();
-        //         setEndScreen(true);
-        //     case "CAB":
-        //         clearStage();
-        //         setCabScreen(true);
-        //         break;
-        //     case "FARM":
-        //         clearStage();
-        //         setFarmScreen(true);
-        //         break;
-        //     case "HOUSE":
-        //         clearStage();
-        //         setFarmScreen(true);
-        //         break;
-        //     case "FOREST":
-        //         clearStage();
-        //         setForestScreen(true);
-        //         break;
-        //     case "BARN":
-        //         clearStage();
-        //         setBarnScreen(true);
-        //         break;
-        // }
     }
 
     //This will reset the inputted morse depending on length/time
@@ -228,10 +250,23 @@ const adventureGame = forwardRef((props, ref) => {
     //Screens have to be boolean in order to set items to "true" or "false" without checks.
     const [startScreen, setStartScreen] = useState(true);
     const [endScreen, setEndScreen] = useState(false);
-    const [cabScreen, setCabScreen] = useState(false);
+    const [cabScreen, setCabScreen] = useState(true);
     const [farmScreen, setFarmScreen] = useState(false);
     const [houseScreen, setHouseScreen] = useState(false);
     const [forestScreen, setForestScreen] = useState(false);
+
+    //Objects, considered "Not Found", thus set to false.
+    const [pig, pigFound] = useState(false);
+    const [bed, bedFound] = useState(false);
+    const [cap, capFound] = useState(false);
+    const [cob, cobFound] = useState(false);
+    const [ham, hamFound] = useState(false);
+    const [dog, dogFound] = useState(false);
+    const [fan, fanFound] = useState(false);
+    const [guy, guyFound] = useState(false);
+    const [map, mapFound] = useState(false);
+    const [oak, oakFound] = useState(false);
+
     const [barnScreen, setBarnScreen] = useState(false);
 
     const [currentScreen, setCurrentScreen] = useState("Start");
@@ -259,7 +294,8 @@ const adventureGame = forwardRef((props, ref) => {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundSize: "contain",
-            width: "100vw",
+            marginLeft: "15vw",
+            width: "70vw",
             height: "66vh"
         }}>
             
@@ -273,6 +309,7 @@ const adventureGame = forwardRef((props, ref) => {
                     toggle
                         ? props => <div style={{
                             position: 'absolute',
+                            left: "-0vw",
                             width: '100vw',
                             height: '90vh',
                             display: 'flex',
@@ -363,8 +400,37 @@ const adventureGame = forwardRef((props, ref) => {
                 }
             </Transition>
 
-            <Transition> {/*Cab Screen*/}
-                items = {cabScreen};
+            <Transition>
+                <img src={pigImage} alt="Pig Object" style = {{ width:'10vw', height:'10vh'}} />
+                <img src={pigImage} id = "pigID" alt="Pig picture" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                
+                {/* {toggle =>
+                    toggle
+                        ? props => <div style={{
+                            position: 'absolute',
+                            left: "-0vw",
+                            width: '100vw',
+                            height: '90vh',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            zIndex: 1,
+                            ...props
+                        }}>
+                            <div style={{
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: 'black',
+                                opacity: 0.7
+                            }} />
+                            <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
+                            <img src={pigImage} alt="Pig Object" style = {{ width:'10vw', height:'10vh'}} />
+                            </Grid>
+                        </div>
+                        : props => <div />
+                } */}
+                
             </Transition>
 
             <Transition> {/*Farm Screen*/}
@@ -381,7 +447,6 @@ const adventureGame = forwardRef((props, ref) => {
             </Transition>
 
             <Transition> {/*Barn Screen*/}
-                items = {barnScreen};
             </Transition>
 
             <Transition //End Screen
@@ -460,6 +525,17 @@ const adventureGame = forwardRef((props, ref) => {
                 }
             </Transition>
 
+            <div> {/*Objects*/}
+                <img src={pigImage} id = "pigID" alt="Pig picture" style = {{
+                    position: 'absolute',
+                    width:'15%', 
+                    height:'20%', 
+                    top: "55vh",
+                    left: "56vw",
+                    visibility: 'hidden'
+                    }} />
+            </div>
+
             <div> {/*Back Button*/}
                 <Link className='nav-link' to="/GamesThemes">
                         <button style={{
@@ -476,7 +552,6 @@ const adventureGame = forwardRef((props, ref) => {
             <div> {/*Clear Button*/}
                 <button id = "clearButton" style = {{
                         marginLeft:"-88vw",
-                        
                         fontSize: "4vh",
                         width: "10%",
                         height: "90%",
