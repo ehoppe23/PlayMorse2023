@@ -7,9 +7,24 @@ import { Link } from 'react-router-dom';
 * The instructions page found by clicking in the nav bar
 */
 
+
+
+
 const GettingStarted = forwardRef((props, ref) => {
   const [backgroundColor, setBackgroundColor] = useState(() => '#e8e8e8');
   const [fontColor, setFontColor] = useState(() => 'black');
+  const styles = {
+    col: {
+      fontColor: "red",
+      width: "50%",
+      fontWeight: "100",
+    },
+    inputText: {
+      padding: "10px",
+      color: "red",
+    },
+  };
+
   useImperativeHandle(
     ref,
     () => ({
@@ -27,24 +42,44 @@ const GettingStarted = forwardRef((props, ref) => {
       width: '100vw',
       color: fontColor,
 
+      
+
     }}>
       <h1 style={{ fontWeight: 900, fontSize: "50px", paddingTop: '20px' }}>Typing with Morse on this Website</h1>
 
-      <h2 style={{ fontWeight: 900, fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>How to type with Morse on this Website:</h2>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }} >Morse code is made up of a combination of 'dots' and 'dashes' to create letters
+
+  
+      <div class="row">
+          <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }} >Morse code is made up of a combination of 'dots' and 'dashes' to create letters
             and numbers. Click here for a <a href="https://cvision.org/wp-content/uploads/2021/02/Morse-Code-Guide.pdf" target="_blank">PDF of a Morse code guide.</a></p>
+            <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>There are 3 possible ways to input the 'dot' and 'dash' on this website: the mouse, the space and enter keys, or a switch device.</p>
+        <div class="column" style={styles.col}>
+        <h2 style={{ fontweight: 900, fontSize: "30px", textAlign: "Left", paddingLeft: "10vw" }}>Using a Mouse:</h2>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>On this website, each activity requires you to type a 'dot or 'dash' using a keyboard,
-        switches, or a mouse.</p>
+<p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Simply click on the 'dot' and 'dash' button on the screen in each activity.</p>
+        </div>
 
-      <h2 style={{ fontWeight: 900, fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Using a Keyboard:</h2>
+        <div class="column">
+          <h2 style={{ fontWeight: 900, fontSize: "30px", textAlign: "left", paddingLeft: "4vw" }}>Using a Keyboard:</h2>
+          <p style={{ paddingLeft: "4vw", paddingRight: "0vw", textAlign: "left", fontSize: "25px" }}>Dot and dash are activated by <b>keyboard keys:</b></p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Dot and dash are activated by <b>keyboard keys:</b></p>
+      <p style={{ paddingLeft: "4vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Space = 'dot'</p>
+      <p style={{ paddingLeft: "4vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Enter = 'dash'</p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Space = 'dot'</p>
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Enter = 'dash'</p>
+        </div>
 
+      </div>
+
+      
+
+      
+
+
+
+     
+
+      
       <h2 style={{ fontWeight: 900, fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Using Switches:</h2>
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Like using a keyboard, you will use the 'space' and 'enter' keys to
@@ -52,46 +87,52 @@ const GettingStarted = forwardRef((props, ref) => {
 
 
       <p style={{ textAlign: "left", paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px" }}>
-        You will need a <b>switch interface</b> that can produce keyboard command to use
-          switches. If you have a switch interface and 2 switches, set
+
+        A switch interface can be used to map the 'space' and 'enter' keys to physical buttons.
+        If you have a switch interface and 2 switches, set
           your switch interface keyboard commands to 'space' and 'enter'.
-        </p>
-
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>If you are using left and right sides of the body for swich placement,
-        place the switches like this:</p>
-
+      </p>
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "Left", fontSize: "25px" }}>If you are using left and right sides of the body for switch placement, place
       the switches like this:
         </p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>'space' (dot) - Left side</p>
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>'enter' (dash) - Right side</p>
+
+        <div class="column">
+        <p style={{ fontWeight: "bold", paddingLeft: "55%", paddingRight: "0vw", textAlign: "left", fontSize: "25px" }}>'space' (dot) - Left side</p>
+        </div>
+        <div class="column">
+        <p style={{ fontWeight: "bold", paddingLeft: "5vw", paddingRight: "0vw", textAlign: "left", fontSize: "25px" }}>'enter' (dash) - Right side</p>
+        </div>
+     
+
+      <img src={buttons} alt="Photo of dot and dash buttons" id="buttonsimage" width="60%"></img>
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>
         This placement will visually match how the 'dot' and 'dash' are placed on the
         screen.
         </p>
 
-      <img src={buttons} alt="Photo of dot and dash buttons" id="buttonsimage" width="60%"></img>
-
-      <h2 style={{ fontweight: 900, fontSize: "40px", textAlign: "Left", paddingLeft: "10vw" }}>Using a Mouse:</h2>
-
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Simply click on the 'dot' and 'dash' on the screen in each activity.</p>
+      
 
       <h2 style={{ fontweight: 900, fontSize: "40px", textAlign: "Left", paddingLeft: "10vw" }}>Settings:</h2>
 
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>The settings page can be accessed by clicking the gear icon in the top right corner of the screen. </p>
+
+
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Each person may do better with different color combinations, font sizes,
-        volume, or speeds so our settings let you customize: </p>
+        volume, or speeds, so our settings page allows you to customize: </p>
 
       <ol style={{ paddingLeft: "10vw", paddingRight: "15vw", textAlign: "left", fontSize: "25px" }}>
         <li>Color of background, buttons, and text</li>
         <li>Size of text</li>
         <li>Sound level (volume)</li>
-        <li>How quickly switches or keys need to be hit to make a letter</li>
+        <li>Speed: How quickly switches or keys need to be hit to make a letter</li>
       </ol>
 
       <h2 style={{ fontweight: 900, fontSize: "40px", textAlign: "left", paddingLeft: "10vw" }}>Description of the Games</h2>
+
+
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>In most activities, you can choose to include Morse code prompts (visual cues for correct Morse combination) 
         or turn them off to make the activity more challenging after you have practiced for a while. In some activities you can choose to ‘scramble’ the order of the letters.</p>
@@ -145,3 +186,4 @@ const GettingStarted = forwardRef((props, ref) => {
 })
 
 export default GettingStarted;
+
