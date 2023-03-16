@@ -32,8 +32,7 @@ import houseImage from "./adventureGamePics/House.jfif";
 
 //Pictures Objects
 import pigImage from "./adventureGamePics/pig.png"
-
-var ObjectIDs = ["pigID"];
+import farmerImage from "./adventureGamePics/farmer.png"
 
 var textIndex = 0;
 var t;
@@ -153,13 +152,16 @@ const adventureGame = forwardRef((props, ref) => {
                 clearStage();
                 setForestScreen(true);
             }
-            if(currentWord === "BARN") {
+            if(currentWord === "BARN" || currentWord === "FARM") {
                 setCurrentScreen("Barn");
                 setBackgroundPicture(barnImage);
                 clearStage();
                 setBarnScreen(true);
                 if(!pig) {
                     document.getElementById("pigID").style.visibility = "visible";
+                }
+                if(!guy) {
+                    document.getElementById("farmerID").style.visibility = "visible";
                 }
             }
         }
@@ -190,9 +192,16 @@ const adventureGame = forwardRef((props, ref) => {
             if(currentWord === "fan") {
                 fanFound(true);
             }
-            if(currentWord === "guy") {
-                guyFound(true);
+
+            if(currentWord === "guy" || currentWord === "farmer" || currentWord ==="boy") {
+                if(!guy) {
+                    document.getElementById("farmerID").style.visibility = "hidden";
+                    guyFound(true);
+                    setGems(gemScore + 1);
+                }
+                setWord("");
             }
+
             if(currentWord === "map") {
                 mapFound(true);
             }
@@ -296,7 +305,8 @@ const adventureGame = forwardRef((props, ref) => {
             backgroundSize: "contain",
             marginLeft: "15vw",
             width: "70vw",
-            height: "66vh"
+            height: "66vh",
+            marginBottom:"34vh"
         }}>
             
             <Transition //Tutorial transition, "Start Screen"
@@ -404,49 +414,6 @@ const adventureGame = forwardRef((props, ref) => {
                 <img src={pigImage} alt="Pig Object" style = {{ width:'10vw', height:'10vh'}} />
                 <img src={pigImage} id = "pigID" alt="Pig picture" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
                 
-                {/* {toggle =>
-                    toggle
-                        ? props => <div style={{
-                            position: 'absolute',
-                            left: "-0vw",
-                            width: '100vw',
-                            height: '90vh',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            zIndex: 1,
-                            ...props
-                        }}>
-                            <div style={{
-                                position: 'absolute',
-                                width: '100%',
-                                height: '100%',
-                                backgroundColor: 'black',
-                                opacity: 0.7
-                            }} />
-                            <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
-                            <img src={pigImage} alt="Pig Object" style = {{ width:'10vw', height:'10vh'}} />
-                            </Grid>
-                        </div>
-                        : props => <div />
-                } */}
-                
-            </Transition>
-
-            <Transition> {/*Farm Screen*/}
-                items = {farmScreen};
-            </Transition>
-
-            <Transition> {/*House Screen*/}
-                items = {houseScreen};
-
-            </Transition>
-
-            <Transition> {/*Forest Screen*/}
-                items ={forestScreen}
-            </Transition>
-
-            <Transition> {/*Barn Screen*/}
             </Transition>
 
             <Transition //End Screen
@@ -530,8 +497,16 @@ const adventureGame = forwardRef((props, ref) => {
                     position: 'absolute',
                     width:'15%', 
                     height:'20%', 
-                    top: "55vh",
+                    top: "56vh",
                     left: "56vw",
+                    visibility: 'hidden'
+                    }} />
+                <img src={farmerImage} id = "farmerID" alt="Farmer picture" style = {{
+                    position: 'absolute',
+                    width:'25%', 
+                    height:'90%', 
+                    top: "12vh",
+                    left: "30vw",
                     visibility: 'hidden'
                     }} />
             </div>
@@ -571,9 +546,7 @@ const adventureGame = forwardRef((props, ref) => {
             <div> {/*Trackers*/}
                 <Grid item>
                         <div style={{
-                            position: 'absolute',
-                            left: '1.4vw',
-                            top: '30vh',
+                            marginLeft: "-88vw",
                             fontSize: '3vh',
                             pointer: 'default',
                             userSelect: 'none',
@@ -602,10 +575,9 @@ const adventureGame = forwardRef((props, ref) => {
 
             <div> {/*Morse Buttons*/}
                 <button id="dotButton" style={{
-                    position: "absolute",
                     backgroundColor: dotButtonColor,
-                    top: "80vh",
-                    left: "20vw",
+                    marginTop: "-27vh",
+                    marginLeft: "13vw",
                     width: '30%',
                     height: '20vh',
                     cursor: 'pointer',
@@ -627,10 +599,9 @@ const adventureGame = forwardRef((props, ref) => {
                 </button>
                 
                 <button id="dashButton" style={{
-                    position: "absolute",
                     backgroundColor: dashButtonColor,
-                    top: "80vh",
-                    left: "50vw",
+                    marginTop:"-20vh",
+                    marginLeft:"36vw",
                     width: '30%',
                     height: '20vh',
                     cursor: 'pointer',
