@@ -68,6 +68,9 @@ const GamesThemes = forwardRef((props, ref) => {
           <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Alphabet Clearout' img={alphabetClearoutIMG} link='/alphabetClearout' difficulty='Level 1' />
           </Grid>
+          <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
+            <GameSelection name='Simon Says' img={hitIMG} link='/simonSays' difficulty='Level 1' />
+          </Grid>
         </Grid>
       </Container>
       <Link className='nav-link' to="/games" style={{
