@@ -10,28 +10,29 @@ import {morseToChar} from "./charMorseConv";
 import useSound from 'use-sound';
 import dashSound from '../Assets/Sounds/dash.mp3'
 import dotSound from '../Assets/Sounds/dot.mp3'
+import {animated, useSpring} from 'react-spring';
 import {initial, Buttons, ButtonsWithoutInput, resetInputTime, resetInputLength, BackButton} from "./Common/Functions";
+import spacebar from "../Assets/Images/spacebar.png";
+import enterButton from "../Assets/Images/enterButton.png";
+import {Container} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import {Transition} from "react-spring/renderprops";
 import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
 import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 //Pictures Screen
-import cabImage from "./adventureGamePics/Cab.jpg";
+import cabImage from "./adventureGamePics/Cab.png";
 import InCabImage from "./adventureGamePics/InCab.png";
 import barnImage from "./adventureGamePics/Barn.jpg";
 import farmImage from "./adventureGamePics/Farm.png";
 import forestImage from "./adventureGamePics/Forest.jpg";
-import houseImage from "./adventureGamePics/House.jpg";
-import oakImage from "./adventureGamePics/Oak.jpg";
+import houseImage from "./adventureGamePics/House.jfif";
 
 //Pictures Objects
 import pigImage from "./adventureGamePics/pig.png"
 import farmerImage from "./adventureGamePics/farmer.png"
-import girlFarmerImage from "./adventureGamePics/Mel.png"
-import henImage from "./adventureGamePics/hen.png"
-import owlImage from "./adventureGamePics/Owl.png"
 
 var textIndex = 0;
 var t;
@@ -107,197 +108,105 @@ const adventureGame = forwardRef((props, ref) => {
     );
 
     function clearStage() {
-        // setStartScreen(false);
-        // setEndScreen(false);
-        // setCabScreen(false);
-        // setFarmScreen(false);
-        // setHouseScreen(false);
-        // setForestScreen(false);
-        // setBarnScreen(false);
-
-        setWord("");
-    }
-
-    function checkFinishedGame() {
-        if(gemScore > 4) {
-            if(!(currentScreen === "Cab")) {
-                setHelperText("Great! We're all done. Let's head back to the Taxi (- " + '\xa0\xa0\xa0' + ".- " + '\xa0\xa0\xa0' + "-..- " + '\xa0\xa0\xa0' + "..)!")
-            } else {
-                setHelperText("Look's like we've invited everyone! Let's head Home (.... " + '\xa0\xa0\xa0' + " --- " + '\xa0\xa0\xa0' + " -- " + '\xa0\xa0\xa0' + " .)")
-            }
-        }
-    }
-
-    function resetGame() {
-        setWord("");
-        setGems(0);
+        setStartScreen(false);
         setEndScreen(false);
-        setStartScreen(true);
-        setBackgroundPicture(cabImage);
-        document.getElementById("girlFarmerID").style.visibility = "hidden";
-        document.getElementById("farmerID").style.visibility = "hidden";
-        document.getElementById("pigID").style.visibility = "hidden";
-        document.getElementById("henID").style.visibility = "hidden";
-        document.getElementById("owlID").style.visibility = "hidden";
-        pigFound(false);
-        henFound(false);
-        owlFound(false);
-        melFound(false);
-        tomFound(false);
-        setHelperText("There's noone here,let's go into the Taxi (-" + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + "-..-" + '\xa0\xa0\xa0' + "..)!");
+        setCabScreen(false);
+        setFarmScreen(false);
+        setHouseScreen(false);
+        setForestScreen(false);
+        setBarnScreen(false);
+
+        setWord("");
     }
     
     function checkCurrentWord() {
         //Don't know why switch doesn't work but a bunch of if's do.
         { /* Locations */
             if(currentWord === "TEST") {
-                setHelperText("I hope you know what you're doing!");
                 setCurrentScreen("End");
                 setBackgroundPicture();
                 clearStage();
                 setEndScreen(true);
             }
             if(currentWord === "CAB" || currentWord ==="TAXI") {
-                setHelperText("Now, should we explore the farm (..-. " + '\xa0\xa0\xa0' + ".- " + '\xa0\xa0\xa0' + ".-." + '\xa0\xa0\xa0' + " --) or the trees (- " + '\xa0\xa0\xa0' + ".-." + '\xa0\xa0\xa0' + " ." + '\xa0\xa0\xa0' + " . " + '\xa0\xa0\xa0' + "...) ?")
-                checkFinishedGame();
                 setCurrentScreen("Cab");
                 setBackgroundPicture(InCabImage);
                 clearStage();
                 setCabScreen(true);
             }
             if(currentWord === "FARM") {
-                if((!pig) && (!tom)) {
-                    setHelperText("Great! You found Tom (-" + '\xa0\xa0\xa0' + " --- " + '\xa0\xa0\xa0' + "--) and his Pig (.--. " + '\xa0\xa0\xa0' + ".. " + '\xa0\xa0\xa0' + "--.) !")
-                } else {
-                    setHelperText("You're already done here! Let's go back to the Taxi (- " + '\xa0\xa0\xa0' + ".- " + '\xa0\xa0\xa0' + "-..- " + '\xa0\xa0\xa0' + "..)")
-                }
-                checkFinishedGame();
                 setCurrentScreen("Farm");
                 setBackgroundPicture(farmImage);
                 clearStage();
                 setFarmScreen(true);
             }
-            if(currentWord === "TREES") {
-                setHelperText("You found Mel (--" + '\xa0\xa0\xa0' + " . " + '\xa0\xa0\xa0' + ".-..) and her Hen (.... " + '\xa0\xa0\xa0' + ". " + '\xa0\xa0\xa0' + "-.) !")
-                if (!mel) {
-                    document.getElementById("girlFarmerID").style.visibility = "visible";
-                }
-                if (!hen) {
-                    document.getElementById("henID").style.visibility = "visible";
-                }
-                checkFinishedGame();
+            if(currentWord === "HOUSE") {
+                setCurrentScreen("House");
+                setBackgroundPicture(houseImage);
+                clearStage();
+                setHouseScreen(true);
+            }
+            if(currentWord === "FOREST") {
                 setCurrentScreen("Forest");
                 setBackgroundPicture(forestImage);
                 clearStage();
                 setForestScreen(true);
             }
-            if(currentWord === "OAK") {
-                if(!owl) {
-                    setHelperText("I knew it! Here's Mac (--" + '\xa0\xa0\xa0' + " .-" + '\xa0\xa0\xa0' + " -.-.) the Owl (--- " + '\xa0\xa0\xa0' + ".-- " + '\xa0\xa0\xa0' + ".-..) !")
-                    document.getElementById("owlID").style.visibility = "visible";
+            if(currentWord === "BARN" || currentWord === "FARM") {
+                setCurrentScreen("Barn");
+                setBackgroundPicture(barnImage);
+                clearStage();
+                setBarnScreen(true);
+                if(!pig) {
+                    document.getElementById("pigID").style.visibility = "visible";
                 }
-                checkFinishedGame();
-                setCurrentScreen("Oak");
-                setBackgroundPicture(oakImage);
-                clearStage();
-                setHouseScreen(true);
-            }
-            if(currentWord === "HOME") {
-                setTimeout(function () {
-                    setEndScreen(true);
-                }, 3000);
-                setHelperText("Great Job! Everyone's here!");
-                setCurrentScreen("House");
-                setBackgroundPicture(houseImage);
-                
-                document.getElementById("owlID").style.visibility = "visible";
-                    {
-                        document.getElementById("owlID").style.top = "32vh";
-                        document.getElementById("owlID").style.left = "55vw";
-                    }
-                document.getElementById("girlFarmerID").style.visibility = "visible";
-                    {
-                        document.getElementById("girlFarmerID").style.top = "32vh";
-                        document.getElementById("girlFarmerID").style.left = "25vw";
-                    }
-                document.getElementById("farmerID").style.visibility = "visible";
-                    {
-                        document.getElementById("farmerID").style.top = "7vh";
-                        document.getElementById("farmerID").style.left = "33vw";
-                    }
-                document.getElementById("pigID").style.visibility = "visible";
-                    {
-                        document.getElementById("pigID").style.top = "50vh";
-                        document.getElementById("pigID").style.left = "60vw";
-                    }
-                document.getElementById("henID").style.visibility = "visible";
-                    {
-                        document.getElementById("henID").style.top = "49vh";
-                        document.getElementById("henID").style.left = "50vw";
-                    }
-                clearStage();
+                if(!guy) {
+                    document.getElementById("farmerID").style.visibility = "visible";
+                }
             }
         }
         { /* Objects */
             if(currentWord === "PIG") {
                 if(!pig) {
-                    if (!tom) {
-                        setHelperText("Great! Let's not forget Tom (- " + '\xa0\xa0\xa0' + "--- " + '\xa0\xa0\xa0' + "--) !");
-                    } else {
-                        setHelperText("Perfect! We're all wrapped up here, lets go back to the Taxi (- " + '\xa0\xa0\xa0' + ".- " + '\xa0\xa0\xa0' + "-..-" + '\xa0\xa0\xa0' + " ..) !")
-                    }
                     document.getElementById("pigID").style.visibility = "hidden";
                     pigFound(true);
                     setGems(gemScore + 1);
                 }
                 setWord("");
             }
-            if (currentWord === "HEN") {
-                if(!hen) {
-                    if (!mel) {
-                        setHelperText("Let's not forget about Mel (-- " + '\xa0\xa0\xa0' + ". " + '\xa0\xa0\xa0' + ".-..)")    
-                    } else {
-                        setHelperText("Those Oak (--- " + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + " -.-) trees look weird. Let's take a closer look!")
-                    }
-                    document.getElementById("henID").style.visibility = "hidden";
-                    henFound(true);
-                    setGems(gemScore + 1);
-                }
-                setWord("");
+            if(currentWord === "bed") {
+                bedFound(true);
             }
-            if (currentWord === "MEL" ){
-                if(!mel) {
-                    if (!hen) {
-                        setHelperText("Let's not forget about the Hen (.... " + '\xa0\xa0\xa0' + "." + '\xa0\xa0\xa0' + " -.) ")
-                    } else {
-                        setHelperText("Those Oak (--- " + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + " -.-) trees look weird. Let's take a closer look!")
-                    }
-                    document.getElementById("girlFarmerID").style.visibility = "hidden";
-                    melFound(true);
-                    setGems(gemScore + 1);
-                }
-                setWord("");
+            if(currentWord === "cap") {
+                capFound(true);
             }
-            if(currentWord === "GUY" || currentWord === "TOM" || currentWord ==="BOY") {
-                if(!tom) {
-                    if(!pig) {
-                        setHelperText("Great! Let's not forget his Pig (.--." + '\xa0\xa0\xa0' + " .. " + '\xa0\xa0\xa0' + "--.) !");
-                    } else {
-                        setHelperText("Perfect! We're all wrapped up here, lets go back to the Taxi (- " + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + " -..- " + '\xa0\xa0\xa0' + "..) !")
-                    }
+            if(currentWord === "cob") {
+                cobFound(true);
+            }
+            if(currentWord === "ham") {
+                hamFound(true);
+            }
+            if(currentWord === "dog") {
+                dogFound(true);
+            }
+            if(currentWord === "fan") {
+                fanFound(true);
+            }
+
+            if(currentWord === "guy" || currentWord === "farmer" || currentWord ==="boy") {
+                if(!guy) {
                     document.getElementById("farmerID").style.visibility = "hidden";
-                    tomFound(true);
+                    guyFound(true);
                     setGems(gemScore + 1);
                 }
                 setWord("");
             }
-            if (currentWord === "OWL" || currentWord === "MAC") {
-                if(!owl) {
-                    setHelperText("Great! He'll be there. Let's head back to the Taxi (- " + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + " -..-" + '\xa0\xa0\xa0' + " ..) !");
-                    document.getElementById("owlID").style.visibility = "hidden";
-                    owlFound(true);
-                    setGems(gemScore + 1);
-                }
+
+            if(currentWord === "map") {
+                mapFound(true);
+            }
+            if(currentWord === "oak") {
+                oakFound(true);
             }
         }
     }
@@ -348,7 +257,6 @@ const adventureGame = forwardRef((props, ref) => {
     const [currentWord, setWord] = useState("");
 
     //Screens have to be boolean in order to set items to "true" or "false" without checks.
-    //Unnecessary.
     const [startScreen, setStartScreen] = useState(true);
     const [endScreen, setEndScreen] = useState(false);
     const [cabScreen, setCabScreen] = useState(true);
@@ -356,14 +264,19 @@ const adventureGame = forwardRef((props, ref) => {
     const [houseScreen, setHouseScreen] = useState(false);
     const [forestScreen, setForestScreen] = useState(false);
 
-    const [helperText, setHelperText] = useState("There's noone here,let's go into the Taxi (-" + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + "-..-" + '\xa0\xa0\xa0' + "..)!");
-
     //Objects, considered "Not Found", thus set to false.
-    const [owl, owlFound] = useState(false);
-    const [hen, henFound] = useState(false);
-    const [mel, melFound] = useState(false);
     const [pig, pigFound] = useState(false);
-    const [tom, tomFound] = useState(false);
+    const [bed, bedFound] = useState(false);
+    const [cap, capFound] = useState(false);
+    const [cob, cobFound] = useState(false);
+    const [ham, hamFound] = useState(false);
+    const [dog, dogFound] = useState(false);
+    const [fan, fanFound] = useState(false);
+    const [guy, guyFound] = useState(false);
+    const [map, mapFound] = useState(false);
+    const [oak, oakFound] = useState(false);
+
+    const [barnScreen, setBarnScreen] = useState(false);
 
     const [currentScreen, setCurrentScreen] = useState("Start");
 
@@ -390,10 +303,10 @@ const adventureGame = forwardRef((props, ref) => {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundSize: "contain",
-            width: "80vw",
-            height: "62vh",
-            marginLeft: "10vw",
-            marginBottom: "300vh"
+            marginLeft: "15vw",
+            width: "70vw",
+            height: "66vh",
+            marginBottom:"34vh"
         }}>
             
             <Transition //Tutorial transition, "Start Screen"
@@ -497,6 +410,12 @@ const adventureGame = forwardRef((props, ref) => {
                 }
             </Transition>
 
+            <Transition>
+                <img src={pigImage} alt="Pig Object" style = {{ width:'10vw', height:'10vh'}} />
+                <img src={pigImage} id = "pigID" alt="Pig picture" style = {{ width:'4.5%', height:'4.5%', visibility: 'visible'}} />
+                
+            </Transition>
+
             <Transition //End Screen
                 items={endScreen}
                 duration={500}
@@ -507,7 +426,6 @@ const adventureGame = forwardRef((props, ref) => {
                     toggle
                         ? props => <div style={{
                             position: 'absolute',
-                            left:"-0vw",
                             width: '100vw',
                             height: '90vh',
                             display: 'flex',
@@ -526,6 +444,11 @@ const adventureGame = forwardRef((props, ref) => {
                             <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
                                 <Grid item xs={9} style={{ userSelect: 'none', color: fontColor }}>
                                     <Card>
+                                        <h1 style={{
+                                            marginBottom: '0vh',
+                                            fontSize: '8vh'
+                                        }}>
+                                        </h1>
                                         <br />
                                         <p style={{
                                             marginTop: '0vh',
@@ -534,7 +457,6 @@ const adventureGame = forwardRef((props, ref) => {
                                             fontSize: '8vh',
                                             marginBottom: '0vh'
                                         }}>
-                                            Congratulations!
                                         </p>
                                     </Card>
                                 </Grid>
@@ -556,7 +478,8 @@ const adventureGame = forwardRef((props, ref) => {
                                         <button style={{ fontSize: '8vh', cursor: ' pointer', height: '100%', width: '100%' }}
                                             onMouseDown={function () {
                                                 if (endScreen) {
-                                                    resetGame();
+                                                    setGems(0);
+                                                    setEndScreen(false);
                                                 }
                                             }}>
                                             More Practice (-)
@@ -577,8 +500,7 @@ const adventureGame = forwardRef((props, ref) => {
                     top: "56vh",
                     left: "56vw",
                     visibility: 'hidden'
-                }} />
-
+                    }} />
                 <img src={farmerImage} id = "farmerID" alt="Farmer picture" style = {{
                     position: 'absolute',
                     width:'25%', 
@@ -586,78 +508,28 @@ const adventureGame = forwardRef((props, ref) => {
                     top: "12vh",
                     left: "30vw",
                     visibility: 'hidden'
-                }} />
-
-                <img src={girlFarmerImage} id = "girlFarmerID" alt="girlFarmer picture" style = {{
-                    position: 'absolute',
-                    width:'20%', 
-                    height:'40%', 
-                    top: "30vh",
-                    left: "32vw",
-                    visibility: 'hidden'
-                }} />
-
-                <img src = {henImage} id = "henID" style = {{
-                    position: 'absolute',
-                    width:'10%', 
-                    height:'23%', 
-                    top: "47vh",
-                    left: "53vw",
-                    visibility: 'hidden'
-                }} />
-
-                <img src = {owlImage} id = "owlID" style = {{
-                    position: 'absolute',
-                    width:'8%', 
-                    height:'19%', 
-                    top: "50vh",
-                    left: "44.2vw",
-                    visibility: 'hidden'
-                }} />
-
-            </div>
-
-            <div> {/*Helper Text*/}
-                <div style={{
-                    backgroundColor: "#D3D3D3",
-                    width: '50%',
-                    height: '5vh',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: "absolute",
-                    marginLeft: "15vw",
-                    fontSize: '3vh',
-                    pointer: 'default',
-                    userSelect: 'none',
-                    color: fontColor
-                }}>
-                    <p>{helperText}</p>
-                </div>
+                    }} />
             </div>
 
             <div> {/*Back Button*/}
                 <Link className='nav-link' to="/GamesThemes">
                         <button style={{
-                            position: "absolute",
-                            marginLeft: "-49vw",
                             width: '10%',
-                            height: "8%",
                             fontSize: '4vh',
                             fontWeight: 800,
                             userSelect: 'none',
                             cursor: 'pointer',
+                            marginLeft:"-88vw"
                         }}>Back</button>
                 </Link>
             </div>
 
             <div> {/*Clear Button*/}
                 <button id = "clearButton" style = {{
-                        position:"absolute",
-                        marginLeft:"39vw",
+                        marginLeft:"-88vw",
                         fontSize: "4vh",
                         width: "10%",
-                        height: "8%",
+                        height: "90%",
                         userSelect: "none",
                         fontWeight: 800
                     }}
@@ -672,49 +544,42 @@ const adventureGame = forwardRef((props, ref) => {
             </div>
 
             <div> {/*Trackers*/}
-                <div style={{
-                    position: "absolute",
-                    marginLeft: "-8.6vw",
-                    marginTop: "6vh",
-                    fontSize: '3vh',
-                    pointer: 'default',
-                    userSelect: 'none',
-                    color: fontColor
-                }}>
-                    <p>Current Word</p>
-                    <p> {currentWord} </p>
-                    <p>Current Score</p>
-                    <p> {gemDisplay} </p>
-                </div>
-                <div>
-                    <p style={{
-                        backgroundColor: "#D3D3D3",
-                        position: "absolute",
-                        width: '25%',
-                        height: '5.5vh',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginLeft: "27.75vw",
-                        marginTop: "62.3vh",
-                        lineHeight: 0,
-                        color: fontColor,
-                        fontSize: '10vh',
-                        textAlign: 'center',
-                        pointer: 'default',
-                        userSelect: 'none'
-                    }}>{input}</p>
-                </div>
+                <Grid item>
+                        <div style={{
+                            marginLeft: "-88vw",
+                            fontSize: '3vh',
+                            pointer: 'default',
+                            userSelect: 'none',
+                            color: fontColor
+                        }}>
+                            <p> Current Word: </p>
+                            <p> {currentWord} </p>
+                            <p> Current Score: </p>
+                            <p> {gemDisplay} </p>
+                            <p> Current Stage: </p>
+                            <p> {currentScreen} </p>
+                        </div>
+                        <div>
+                            <p style={{
+                                marginTop: "48vh",
+                                lineHeight: 0,
+                                color: fontColor,
+                                fontSize: '10vh',
+                                textAlign: 'center',
+                                pointer: 'default',
+                                userSelect: 'none'
+                            }}>{input}</p>
+                        </div>
+                    </Grid>
             </div>
 
             <div> {/*Morse Buttons*/}
                 <button id="dotButton" style={{
-                    position: "absolute",
                     backgroundColor: dotButtonColor,
-                    marginTop: "68vh",
-                    marginLeft: "15vw",
-                    width: '25%',
-                    height: '18vh',
+                    marginTop: "-27vh",
+                    marginLeft: "13vw",
+                    width: '30%',
+                    height: '20vh',
                     cursor: 'pointer',
                     textAlign: 'center',
                     fontSize: '35vh',
@@ -735,11 +600,10 @@ const adventureGame = forwardRef((props, ref) => {
                 
                 <button id="dashButton" style={{
                     backgroundColor: dashButtonColor,
-                    position: "absolute",
-                    marginTop:"68vh",
-                    marginLeft:"40.5vw",
-                    width: '25%',
-                    height: '18vh',
+                    marginTop:"-20vh",
+                    marginLeft:"36vw",
+                    width: '30%',
+                    height: '20vh',
                     cursor: 'pointer',
                     textAlign: 'center',
                     fontSize: '35vh',
@@ -759,5 +623,56 @@ const adventureGame = forwardRef((props, ref) => {
         </div>
     );
 })
+
+const Radio = () => {
+    const [isToggled, setToggle] = useState(false);
+    const menubg = useSpring({ background: isToggled ? "#6ce2ff" : "#ebebeb" });
+    const { y } = useSpring({
+        y: isToggled ? 180 : 0
+    });
+    const menuAppear = useSpring({
+        transform: isToggled ? "translate3D(0,0,0)" : "translate3D(0,-40px,0)",
+        opacity: isToggled ? 1 : 0
+    });
+
+    return (
+        <div style={{ position: "relative", width: "300px", margin: "0 auto" }}>
+            <animated.button
+                style={menubg}
+                className="radiowrapper"
+                onClick={() => setToggle(!isToggled)}
+            >
+                <div className="radio">
+                    <p>Tutorial</p>
+                    <animated.p
+                        style={{
+                            transform: y.interpolate(y => `rotateX(${y}deg)`)
+                        }}
+                    >
+                        ▼
+                    </animated.p>
+                </div>
+            </animated.button>
+            <animated.div style={menuAppear}>
+                {isToggled ? <RadioContent /> : null}
+            </animated.div>
+        </div>
+    );
+};
+
+const RadioContent = () => {
+    return (
+        <div className="radiocontent" >
+            <a href="#" alt="Home">
+            </a>
+            <p id="tutorialText" value="Change Text">Welcome to the Tower Stack game!</p>
+            <img src={spacebar} alt="Spacebar" id="spaceImage" style={{ display: "none" }}></img>
+            <img src={enterButton} alt="Enter Button" id="enterImage" style={{ display: "none" }}></img>
+            <button onClick={function () {
+                updateTutorial();
+            }} style={{ fontSize: '5vh' }}>Next</button>
+        </div>
+    );
+};
 
 export default adventureGame;
