@@ -18,7 +18,7 @@ import LearnWordBeginner from './Components/Games/LearnWord/LearnWordBeginner';
 import LearnWordMedium from './Components/Games/LearnWord/LearnWordMedium';
 import AlphabetNoHelp from "./Components/Games/NoHelpAlphabet";
 import SandboxLetters from "./Components/Games/SandboxLetters";
-import SimonSays from "./Components/Games/SimonSays";
+import SimonSays from "./Components/Games/simonSays";
 import TowerStack from "./Components/Games/towerStack";
 import AlphabetClearout from "./Components/Games/alphabetClearout"
 import AdventureGame from "./Components/Games/adventureGame";
