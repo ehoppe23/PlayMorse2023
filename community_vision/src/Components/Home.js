@@ -49,21 +49,21 @@ const Home = forwardRef((props, ref) => {
         {/* title */}
 
         <h1 style={{
-          fontSize: '10vh',
+          fontSize: '9vh',
           font: Brandon_reg,
           color: fontColor,
-          bottom: '-1vh',
+          bottom: '-2vh',
           userSelect: 'none',
           cursor: 'default',
           fontWeight: 900,
           margin: 0,
           lineHeight: '100%',
-          paddingTop: '2vh'
+          paddingTop: '1vh'
         }}>
           Play Morse!</h1>
         {/* welcome statement */}
         <Grid container justify='center' alignItems='flex-start'>
-          <Grid item xs={11} style={{ height: '20%' }}>
+          <Grid item xs={11} style={{ height: '18%' }}>
             <h1 style={{ height: '100%', color: fontColor, fontWeight: 900, userSelect: 'none', cursor: 'default', lineHeight:'100%' }}>
               Welcome to Community Vision Morse Code Games!
               </h1>
@@ -71,7 +71,7 @@ const Home = forwardRef((props, ref) => {
 
           <img src={studentPhoto} alt='Photo of a student using playmorse.com' id='studentPhoto' height='333'></img>
 
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '6vh', paddingTop: '6vh' }}>
+          <Grid item xs={8} style={{ height: '20%', paddingBottom: '1vh', paddingTop: '1vh' }}>
             {/* directs it to the about page */}
             <Card style={{ minHeight: '100%' }} onMouseUp={() => {
               if (!dropdown) {
@@ -83,7 +83,7 @@ const Home = forwardRef((props, ref) => {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '6vh' }}>
+          <Grid item xs={8} style={{ height: '20%', paddingBottom: '1vh' }}>
             {/* directs it to the getting started page */}
             <Card style={{ minHeight: '100%' }} onMouseUp={() => {
               if (!dropdown) {
@@ -95,7 +95,7 @@ const Home = forwardRef((props, ref) => {
               </CardActionArea>
             </Card>
           </Grid>
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '6vh' }}>
+          <Grid item xs={8} style={{ height: '20%', paddingBottom: '1vh' }}>
             {/* play games button, directs it to the games page */}
             <Card style={{ minHeight: '100%' }} onMouseUp={() => {
               if (!dropdown) {
