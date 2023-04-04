@@ -62,40 +62,31 @@ const Home = forwardRef((props, ref) => {
         }}>
           Play Morse!</h1>
         {/* welcome statement */}
-        <Grid container justify='center' alignItems='flex-start'>
-          <Grid item xs={11} style={{ height: '20%' }}>
+       
+        
             <h1 style={{ height: '100%', color: fontColor, fontWeight: 900, userSelect: 'none', cursor: 'default', lineHeight:'100%' }}>
               Welcome to Community Vision Morse Code Games!
               </h1>
-          </Grid>
-
+      
           <img src={studentPhoto} alt='Photo of a student using playmorse.com' id='studentPhoto' height='333'></img>
 
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '6vh', paddingTop: '6vh' }}>
-            {/* directs it to the about page */}
-            <Card style={{ minHeight: '100%' }} onMouseUp={() => {
-              if (!dropdown) {
-                moveTo('/about');
-              }
-            }}>
-              <CardActionArea>
-                <button style={{ height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#eb6253', color: 'white', borderColor: '#eb6253' }}>About</button>
-              </CardActionArea>
-            </Card>
-          </Grid>
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '6vh' }}>
-            {/* directs it to the getting started page */}
-            <Card style={{ minHeight: '100%' }} onMouseUp={() => {
-              if (!dropdown) {
-                moveTo('/gettingStarted');
-              }
-            }}>
-              <CardActionArea>
-                <button style={{ height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#78c04b', color: 'white', borderColor: '#78c04b'  }}>Instructions</button>
-              </CardActionArea>
-            </Card>
-          </Grid>
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '6vh' }}>
+
+          <div class="row"> 
+            <div class="column">
+               
+                {/* directs it to the about page */}
+                <Card style={{ minHeight: '100%' }} onMouseUp={() => {
+                  if (!dropdown) {
+                    moveTo('/about');
+                  }
+                }}>
+                  <CardActionArea>
+                    <button style={{ align: 'center', height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#eb6253', color: 'white', borderColor: '#eb6253'}}>About</button>
+                  </CardActionArea>
+                </Card>
+            
+
+            
             {/* play games button, directs it to the games page */}
             <Card style={{ minHeight: '100%' }} onMouseUp={() => {
               if (!dropdown) {
@@ -103,11 +94,26 @@ const Home = forwardRef((props, ref) => {
               }
             }}>
               <CardActionArea>
-                <button style={{ height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#21aaa4', color: 'white', borderColor: '#21aaa4' }}>Play Games!</button>
+                <button style={{ align: 'center', height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#21aaa4', color: 'white', borderColor: '#21aaa4' }}>Play Games!</button>
               </CardActionArea>
             </Card>
-          </Grid>
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '6vh' }}>
+
+
+            </div>
+            <div class="column">
+            
+            {/* directs it to the getting started page */}
+            <Card style={{ minHeight: '100%' }} onMouseUp={() => {
+              if (!dropdown) {
+                moveTo('/gettingStarted');
+              }
+            }}>
+              <CardActionArea>
+                <button style={{ align: 'center', height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#78c04b', color: 'white', borderColor: '#78c04b'  }}>Instructions</button>
+              </CardActionArea>
+            </Card>
+
+       
             {/* play games button, directs it to the games page */}
             <Card style={{ minHeight: '100%' }} onMouseUp={() => {
               if (!dropdown) {
@@ -115,11 +121,19 @@ const Home = forwardRef((props, ref) => {
               }
             }}>
               <CardActionArea>
-                <button style={{ height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#3b63a2', color: 'white', borderColor: '#3b63a2'}}>Give us Feedback!</button>
+                <button style={{ align: 'center', height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#3b63a2', color: 'white', borderColor: '#3b63a2'}}>Give us Feedback!</button>
               </CardActionArea>
             </Card>
-          </Grid>
-        </Grid>
+    
+
+              
+            </div>
+
+          </div>
+          
+         
+    
+
       </div>
     </div>
   );
