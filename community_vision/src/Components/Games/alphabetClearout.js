@@ -7,7 +7,7 @@ Created: 1/__/23
 Updated: 1/__/23, 2/3/23
 */
 
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, forwardRef, useImperativeHandle} from 'react';
 import '../../App.css';
 import {morseToChar} from "./charMorseConv";
 import useSound from 'use-sound';
@@ -23,12 +23,9 @@ import {Transition} from "react-spring/renderprops";
 import Card from "@material-ui/core/Card";
 import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
-
-//Natalie:
-import burgerIcon from './burgerIcon.png' //for side display
-import vegdahl from './vegdahl.jpg'
-import tammy from './vandegri.jpg'
-import tribelhorn from './tribelhorn-benjamin.jpg'
+//confetti based on this example: https://www.npmjs.com/package/react-confetti
+import Confetti from "react-confetti";
+//ran this command: npm install react-confetti
 
 var textIndex = 0;
 
@@ -197,6 +194,10 @@ const towerStack = forwardRef((props, ref) => {
             }
         }),
     )
+    
+    //for confetti
+    const width = 2000;
+    const height = 1000;
 
     return (
         
@@ -275,7 +276,6 @@ const towerStack = forwardRef((props, ref) => {
                 }
 
             </Transition>
-            
             <Transition 
                 items={endScreen /* EndScreen - burger finished */}
                 duration={500}
@@ -302,6 +302,7 @@ const towerStack = forwardRef((props, ref) => {
                                 opacity: 0.7
                             }} />
                             <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
+                                 <Confetti width={width} height={height}/>
                                 <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:10}}>
                                     <Card>
                                         <h1 style={{
@@ -368,7 +369,7 @@ const towerStack = forwardRef((props, ref) => {
                         //display: 'none' //comment out to use
                     }}>{'Done: ' + lettersCleared + '\t\tLeft: ' + lettersLeft}</animated.h1>
                
-                    
+                
                 
                 <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
                     

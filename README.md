@@ -1,7 +1,7 @@
 # PlayMorse Capstone 2022-2023
 
 ![Logo](community_vision/src/Components/logo.png)
-## _Emily Hoppe, Natalie Tashchuk, Aron Manalang_
+## _Emily Hoppe, Natalie Tashchuk, Aron Manalang, Hera Malik_
 ### University of Portland Capstone Project
 
 [Check out the website!][df1]

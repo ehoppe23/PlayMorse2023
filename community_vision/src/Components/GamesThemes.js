@@ -48,7 +48,7 @@ const GamesThemes = forwardRef((props, ref) => {
       </Grid>
       </Container>
 
-      <Container maxWidth='xl' style={{ backgroundColor: backgroundColor, paddingBottom: '2vh', paddingTop: '3vh' }}>
+      <Container maxWidth='xl' style={{ /* MAIN GRID */ backgroundColor: backgroundColor, paddingBottom: '2vh', paddingTop: '3vh' }}>
         <Grid container justify='center' spacing={2}>
         <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Alphabet Race Game' img={raceLevel4} link='/alphabetRacePractice' difficulty='Level 3' />
@@ -67,6 +67,9 @@ const GamesThemes = forwardRef((props, ref) => {
           </Grid>
           <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Alphabet Clearout' img={alphabetClearoutIMG} link='/alphabetClearout' difficulty='Level 1' />
+          </Grid>
+          <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
+            <GameSelection name='Simon Says' img={hitIMG} link='/simonSays' difficulty='Level 1' />
           </Grid>
         </Grid>
       </Container>
