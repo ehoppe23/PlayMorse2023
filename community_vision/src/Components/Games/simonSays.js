@@ -6,6 +6,8 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import { Container } from '@material-ui/core';
 import { useSpring, animated } from 'react-spring';
 import { charToMorse, morseToChar } from "./charMorseConv";
+import Confetti from "react-confetti";
+
 import useSound from 'use-sound';
 import dashSound from '../Assets/Sounds/dash.mp3'
 import dotSound from '../Assets/Sounds/dot.mp3'
@@ -450,6 +452,7 @@ const SimonSays = forwardRef((props, ref) => { //CHANGE ME
                                 opacity: 0.7
                             }} />
                             <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
+                                <Confetti width={width} height={height}/>
                                 <Grid item xs={9} style={{ userSelect: 'none', color: fontColor }}>
                                     <Card>
                                         <h1 style={{
@@ -671,7 +674,10 @@ const Radio = () => {
         transform: isToggled ? "translate3D(0,0,0)" : "translate3D(0,-40px,0)",
         opacity: isToggled ? 1 : 0
     });
-
+    
+    const width = 2000;
+    const height = 1000;
+    
     return (
         <div style={{ position: "relative", width: "300px", margin: "0 auto" }}>
             <animated.button
