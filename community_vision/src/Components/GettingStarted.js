@@ -34,26 +34,11 @@ const GettingStarted = forwardRef((props, ref) => {
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }} >Morse code is made up of a combination of 'dots' and 'dashes' to create letters
             and numbers. Click here for a <a href="https://cvision.org/wp-content/uploads/2021/02/Morse-Code-Guide.pdf" target="_blank">PDF of a Morse code guide.</a></p>
-<<<<<<< Updated upstream
-=======
-            <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>There are 3 possible ways to input the 'dot' and 'dash' on this website: the mouse, the space and enter keys, or a switch device.</p>
-        <div class="column" style={styles.col}>
-        <h2 style={{ fontweight: 900, fontSize: "30px", textAlign: "Left", paddingLeft: "10vw" }}>Using a Mouse:</h2>
-        
-
-<p style={{ fontWeight: 400,paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Simply click on the 'dot' and 'dash' button on the screen in each activity.</p>
-        </div>
->>>>>>> Stashed changes
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>On this website, each activity requires you to type a 'dot or 'dash' using a keyboard,
         switches, or a mouse.</p>
 
-<<<<<<< Updated upstream
       <h2 style={{ fontWeight: 900, fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Using a Keyboard:</h2>
-=======
-      <p style={{ paddingLeft: "4vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Space = 'dot' <br></br> Enter = 'dash'</p>
-
->>>>>>> Stashed changes
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Dot and dash are activated by <b>keyboard keys:</b></p>
 
@@ -92,11 +77,7 @@ const GettingStarted = forwardRef((props, ref) => {
 
       <h2 style={{ fontweight: 900, fontSize: "40px", textAlign: "Left", paddingLeft: "10vw" }}>Using a Mouse:</h2>
 
-<<<<<<< Updated upstream
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>Simply click on the 'dot' and 'dash' on the screen in each activity.</p>
-=======
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>The settings page can be accessed by clicking the gear icon labeled 'settings' in the top right corner of the screen. </p>
->>>>>>> Stashed changes
 
       <h2 style={{ fontweight: 900, fontSize: "40px", textAlign: "Left", paddingLeft: "10vw" }}>Settings:</h2>
 
@@ -141,13 +122,10 @@ const GettingStarted = forwardRef((props, ref) => {
 
       <h2 style={{ fontweight: 900, color: "blue", fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Themed Games:</h2>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>'Car Race Game' presents randomized letters that need to be entered with the correct Morse pattern before the letter crossed the screen. This is for an advanced player since there are no prompts and it has a timed element!</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>Car Race Game presents randomized letters that need to be entered with the correct Morse pattern before the letter crossed the screen. This is for an advanced player since there are no prompts and it has a timed element!</p>
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>‘Sandbox’ games let you explore making any ‘dot’ and ‘dash’ combinations to see what letter or word you type. There are no target letters or words to produce, only experimentation!</p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}> 'Burger Stack' also allows experimentation with ‘dot’ and ‘dash’ combinations with each letter adding a piece to the burger you create.</p>
-
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}> 'Alphabet Clearout' challenges a user to type every Morse letter combination and clear the entire alphabet!</p>
 
       <Link className='nav-link' to="/" style={{
         backgroundColor: backgroundColor

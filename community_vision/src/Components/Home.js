@@ -118,16 +118,8 @@ const Home = forwardRef((props, ref) => {
                 <button style={{ height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#3b63a2', color: 'white', borderColor: '#3b63a2'}}>Give us Feedback!</button>
               </CardActionArea>
             </Card>
-<<<<<<< Updated upstream
           </Grid>
         </Grid>
-=======
-                
-            </div>
-
-          </div>
-
->>>>>>> Stashed changes
       </div>
     </div>
   );
