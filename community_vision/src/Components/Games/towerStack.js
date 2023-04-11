@@ -23,6 +23,7 @@ import {Transition} from "react-spring/renderprops";
 import Card from "@material-ui/core/Card";
 import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
+import Confetti from "react-confetti"
 
 import cheeseTS from './cheeseTS.png' //images for burger tower
 import pattyTS from './pattyTS.png'
@@ -230,6 +231,10 @@ const towerStack = forwardRef((props, ref) => {
             }
         }),
     )
+     
+    //for confetti
+    const width = 2000;
+    const height = 1000;
 
     return (
         
@@ -397,7 +402,9 @@ const towerStack = forwardRef((props, ref) => {
                                 opacity: 0.7
                             }} />
                             <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
+                          
                                 <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:10}}>
+                                <Confetti width={width} height={height}/>
                                     <Card>
                                         <h1 style={{
                                             marginBottom: '0vh',

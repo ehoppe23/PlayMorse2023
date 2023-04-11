@@ -314,6 +314,10 @@ const SimonSays = forwardRef((props, ref) => { //CHANGE ME
         }),
     )
 
+        //for confetti
+        const width = 2000;
+        const height = 1000;
+
     return (
         <div style={{
             backgroundColor: backgroundColor,
