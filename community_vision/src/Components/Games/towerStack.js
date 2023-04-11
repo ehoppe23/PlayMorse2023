@@ -1,10 +1,10 @@
 /* 
 Tower Stack
-Main game file - close to completion, just needs polishing
+Main game file - almost complete, just need buttons to be moved up slightly to avoid cutoff
 
 @Author: Emily Hoppe, Natalie Tashchuk
 Created: 10/12/22
-Last Updated: 2/8/23
+Last Updated: 4/10/2023
 */
 
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
@@ -24,7 +24,6 @@ import Card from "@material-ui/core/Card";
 import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
 
-//Natalie:
 import cheeseTS from './cheeseTS.png' //images for burger tower
 import pattyTS from './pattyTS.png'
 import tomatoTS from './tomatoTS.png'
@@ -36,6 +35,7 @@ var textIndex = 0;
 
 
 //For tutorial mode (probably)
+//legacy code inherited from previous team
 function updateTutorial() {
     var space = document.getElementById('spaceImage');
     var enter = document.getElementById('enterImage');
@@ -69,6 +69,7 @@ var t;
 //tower.push(x) to add to the tower
 var tower = [];
 var burgerList = []; //never will contain anything, just to hold length bc react is finnicky
+
 //Main function - returns the html that is the webpage
 const towerStack = forwardRef((props, ref) => {
     
@@ -297,7 +298,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setStartScreen(false);
                                                     }
                                                 }}>
-                                            Press any key to start
+                                            Press enter or space to start
                                         </button>
                                     </Card>
                                 </Grid>
@@ -360,7 +361,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setEndScreen2(false);
                                                     }
                                                 }}>
-                                            Press any key to restart the game
+                                            Press space or enter to restart the game
                                         </button>
                                     </Card>
                                 </Grid>
@@ -420,7 +421,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setEndScreen(false);
                                                     }
                                                 }}>
-                                            Press any key to make more
+                                            Press space or enter to make more
                                         </button>
                                     </Card>
                                 </Grid>
@@ -535,6 +536,7 @@ const towerStack = forwardRef((props, ref) => {
                 volume={volume}
                 input={input}
                 setInput={setInput}
+                //marginBottom = '88%'
             />
 
         </div>
