@@ -30,6 +30,15 @@ const GettingStarted = forwardRef((props, ref) => {
     }}>
       <h1 style={{ fontWeight: 900, fontSize: "50px", paddingTop: '20px' }}>Instructions and Game Descriptions</h1>
 
+      <h2 style={{ fontWeight: 900, fontSize: "40px", textAlign: "left", paddingLeft: "10vw" }}>Recommendations:</h2>
+      <h2 style={{ fontWeight: 900, fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Browser Choice and Screen Size:</h2>
+
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}> While any computer can be used to access PlayMorse.com,
+       visual bugs may arise while playing on small laptops or with certain browsers such as Safari. For the best play experience, we recommend a desktop computer and the Chrome browser.
+       Site visuals will malfunction greatly on tablet and phone sized screens.
+      </p>
+
+
       <h2 style={{ fontWeight: 900, fontSize: "40px", textAlign: "left", paddingLeft: "10vw" }}>How to type with Morse on this Website:</h2>
 
       <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }} >Morse code uses a combination of 'dots' and 'dashes' to create letters
