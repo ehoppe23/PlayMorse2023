@@ -414,24 +414,19 @@ const AlphabetRace = forwardRef((props, ref) => {
                         {livesDisplay}
                     </p>
                 </div>
-                <div style={{ position: 'absolute',    zIndex: 2 }}>
-                <Container>
-                        <Grid container justify='left'>
-                            <Grid item>
-                                <Link className='nav-link' to="/GamesThemes">
-                                    <button style={{
-                                        //back button
-                                        height: '90%',
-                                        width: '100%',
-                                        fontSize: '4vh',
-                                        fontWeight: 800,
-                                        userSelect: 'none',
-                                        cursor: 'pointer',
-                                        marginBottom: "20px"
-                                    }}>Back</button>
-                                </Link>
-                            </Grid>
-                        </Grid>
+                <div style={{ position: 'absolute' }}>
+                    <Container>
+                        <Link className='nav-link' to="/GamesWords">
+                            <button style={{
+                                height: '90%',
+                                width: '100%',
+                                fontSize: '4vh',
+                                fontWeight: 800,
+                                userSelect: 'none',
+                                cursor: 'pointer',
+                                marginBottom: "20px"
+                            }}>Back</button>
+                        </Link>
                     </Container>
                 </div>
                 <div style={{

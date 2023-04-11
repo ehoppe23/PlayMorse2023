@@ -12,10 +12,6 @@ import {initial, Buttons, resetInputLength, resetInputTime, BackButton} from "./
 import { useHistory } from "react-router-dom";
 import { Transition } from 'react-spring/renderprops';
 import {Link} from "react-router-dom";
-//confetti based on this example: https://www.npmjs.com/package/react-confetti
-import Confetti from "react-confetti";
-//run this command: npm install react-confetti
-
 
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var t;
@@ -267,9 +263,6 @@ const AlphabetRacePractice = forwardRef((props, ref) => {
             }
         }),
     )
-//for confetti
-const width = 2000;
-const height = 1000;
 
     return (
         <div style={{
@@ -295,6 +288,7 @@ const height = 1000;
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
+                            zIndex: 1,
                             ...props
                         }}>
                             <div style={{
@@ -302,10 +296,9 @@ const height = 1000;
                                 width: '100%',
                                 height: '100%',
                                 backgroundColor: 'black',
-                                opacity: 0.7,
-                                zIndex: 3
+                                opacity: 0.7
                             }} />
-                            <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 3 }}>
+                            <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
                                 <Grid item style={{ userSelect: 'none', cursor: 'default' }}>
                                     <Card>
                                         <h1 style={{
@@ -365,7 +358,7 @@ const height = 1000;
                                         </button>
                                         </Card>
                                     <Card>
-                                        <button id= "start" style={{display: 'none', fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer', zIndex: 3 }}
+                                        <button id= "start" style={{display: 'none', fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer' }}
                                             onMouseDown={function () {
                                                 if (startScreen) {
                                                     interval = setInterval(() => {
@@ -409,7 +402,6 @@ const height = 1000;
                                 opacity: 0.7
                             }} />
                             <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
-                            <Confetti width={width} height={height}/>
                                 <Grid item xs={9} style={{ userSelect: 'none', color: fontColor }}>
                                     <Card>
                                         <h1 style={{
@@ -443,7 +435,7 @@ const height = 1000;
                                 <Grid item xs={1}></Grid>
                                 <Grid item xs={4} style={{ userSelect: 'none' }}>
                                     <Card>
-                                        <button style={{ fontSize: '8vh', cursor: ' pointer', height: '100%', width: '100%', zIndex: 3 }}
+                                        <button style={{ fontSize: '8vh', cursor: ' pointer', height: '100%', width: '100%' }}
                                             onMouseDown={function () {
                                                 if (endScreen) {
                                                     setLives(3);
@@ -481,7 +473,7 @@ const height = 1000;
                         {livesDisplay}
                     </p>
                 </div>
-                <div style={{ position: 'absolute', zIndex: 2 }}>
+                <div style={{ position: 'absolute' }}>
                     <Container>
                         <Link className='nav-link' to="/GamesThemes">
                             <button style={{

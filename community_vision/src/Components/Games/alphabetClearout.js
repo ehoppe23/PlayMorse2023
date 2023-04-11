@@ -25,7 +25,7 @@ import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
 //confetti based on this example: https://www.npmjs.com/package/react-confetti
 import Confetti from "react-confetti";
-//run this command: npm install react-confetti
+//ran this command: npm install react-confetti
 
 var textIndex = 0;
 
@@ -266,7 +266,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setStartScreen(false);
                                                     }
                                                 }}>
-                                            Press Enter (dash) to Start
+                                            Press any key to start
                                         </button>
                                     </Card>
                                 </Grid>
@@ -277,7 +277,7 @@ const towerStack = forwardRef((props, ref) => {
 
             </Transition>
             <Transition 
-                items={endScreen /* EndScreen */}
+                items={endScreen /* EndScreen - burger finished */}
                 duration={500}
                 from={{ opacity: 0 }}
                 enter={{ opacity: 1 }}
@@ -358,6 +358,8 @@ const towerStack = forwardRef((props, ref) => {
                         </Grid>
                     </Container>
                 </div>
+
+               
 
                 <animated.h1 id="testing" style={{ //Test element to see internal functions
                         //displays # of letters successfully cleared

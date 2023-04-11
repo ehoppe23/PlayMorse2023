@@ -142,7 +142,7 @@ function updateTutorial() {
     }
 }
 
-const simonSays = forwardRef((props, ref) => { //CHANGE ME
+const SimonSays = forwardRef((props, ref) => { //CHANGE ME
 
     const history = useHistory();
     function backToGames() {
@@ -716,4 +716,4 @@ const RadioContent = () => {
     );
 };
 
-export default simonSays;
+export default SimonSays; //CHANGE ME
