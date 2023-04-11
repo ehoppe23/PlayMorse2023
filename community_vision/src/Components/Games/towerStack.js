@@ -23,6 +23,10 @@ import {Transition} from "react-spring/renderprops";
 import Card from "@material-ui/core/Card";
 import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
+//confetti based on this example: https://www.npmjs.com/package/react-confetti
+import Confetti from "react-confetti";
+//run this command: npm install react-confetti
+
 
 //Natalie:
 import cheeseTS from './cheeseTS.png' //images for burger tower
@@ -230,6 +234,10 @@ const towerStack = forwardRef((props, ref) => {
         }),
     )
 
+   //for confetti
+   const width = 2000;
+   const height = 1000;
+
     return (
         
         <div style={{
@@ -297,7 +305,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setStartScreen(false);
                                                     }
                                                 }}>
-                                            Press any key to start
+                                            Press Enter (dash) to Start
                                         </button>
                                     </Card>
                                 </Grid>
@@ -333,6 +341,7 @@ const towerStack = forwardRef((props, ref) => {
                                 opacity: 0.7
                             }} />
                             <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
+                            <Confetti width={width} height={height}/>
                                 <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:11 }}>
                                     <Card>
                                         <h1 style={{
