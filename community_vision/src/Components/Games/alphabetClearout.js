@@ -359,6 +359,31 @@ const towerStack = forwardRef((props, ref) => {
                     </Container>
                 </div>
 
+
+                <Grid container justify-content='center' position= 'relative' alignItems='center' style={{ height: '25%', width: '100%', zIndex: 2, paddingBottom: '1%' }}>
+                    <animated.h1 id = "output" style={{ //Display Letter
+                        //determine where current letter should display on screen
+                        lineHeight: 0,
+                        right: '50%',
+                        top: '10%',
+                        transform: 'translate(50%,50%)',
+                        position: 'absolute',
+                        color: 'fontColor',
+                        fontSize: tfSize //smaller font slightly for tower  
+                    }}>{output} </animated.h1>
+
+                    <animated.h1 id="input" position= 'relative' style={{ //Display Morse
+                        //determines where current morse input should display on screen
+                        lineHeight: 0,
+                        color: 'fontColor',
+                        fontSize: sfSize,
+                        right: '50%',
+                        top: '27%',
+                        transform: 'translate(50%,50%)',
+                        position: 'absolute'
+                    }}>{input}</animated.h1>
+                    </Grid>
+
                
 
                 <animated.h1 id="testing" style={{ //Test element to see internal functions
@@ -366,12 +391,16 @@ const towerStack = forwardRef((props, ref) => {
                         lineHeight: 0,
                         color: fontColor,
                         fontSize: sfSize + 10,
+                        paddingRight: '79%',
+                        
                         //display: 'none' //comment out to use
                     }}>{'Done: ' + lettersCleared + '\t\tLeft: ' + lettersLeft}</animated.h1>
+
+                    
                
                 
                 
-                <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
+                <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right', paddingTop: '2%'}}>
                     
                     <animated.h1 id="letterA" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'A'}</animated.h1>
                     <animated.h1 id="letterB" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'B'}</animated.h1>
@@ -407,7 +436,7 @@ const towerStack = forwardRef((props, ref) => {
                     <animated.h1 id="letterY" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'Y'}</animated.h1>
                     <animated.h1 id="letterZ" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'Z'}</animated.h1>
 
-                    </Grid>
+                </Grid>
 
                 <div>
 
@@ -429,29 +458,7 @@ const towerStack = forwardRef((props, ref) => {
                     }}>{input}</animated.h1>
                 </div>
                 <div>
-                    <Grid container direction='column' justify-content='center' position= 'relative' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 2 }}>
-                    <animated.h1 id = "output" style={{ //Display Letter
-                        //determine where current letter should display on screen
-                        lineHeight: 0,
-                        right: '50%',
-                        bottom: '25%',
-                        transform: 'translate(50%,50%)',
-                        position: 'absolute',
-                        color: 'fontColor',
-                        fontSize: tfSize //smaller font slightly for tower  
-                    }}>{output} </animated.h1>
-
-                    <animated.h1 id="input" position= 'relative' style={{ //Display Morse
-                        //determines where current morse input should display on screen
-                        lineHeight: 0,
-                        color: 'fontColor',
-                        fontSize: sfSize,
-                        right: '50%',
-                        bottom: '22%',
-                        transform: 'translate(50%,50%)',
-                        position: 'absolute'
-                    }}>{input}</animated.h1>
-                    </Grid>
+                  
                 </div>
             </div>
             <ButtonsWithoutInput
