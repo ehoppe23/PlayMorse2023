@@ -339,6 +339,7 @@ const towerStack = forwardRef((props, ref) => {
                                 opacity: 0.7
                             }} />
                             <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
+                            <Confetti width={width} height={height}/>
                                 <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:11 }}>
                                     <Card>
                                         <h1 style={{
@@ -404,7 +405,6 @@ const towerStack = forwardRef((props, ref) => {
                             <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
                           
                                 <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:10}}>
-                                <Confetti width={width} height={height}/>
                                     <Card>
                                         <h1 style={{
                                             marginBottom: '0vh',
