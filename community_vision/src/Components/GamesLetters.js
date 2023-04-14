@@ -8,6 +8,7 @@ import LearnAlphabetIMG from "./Games/LearnAlphabet.jpg" //test image (pig)
 import abceyes from "./Games/Icons/learn morse alphabet.jpg"
 import numbersIMG from "./Games/Icons/learn morse numbers.jpg"
 import chooseLettersIMG from "./Games/Icons/choose your letters.jpg"
+import sandboxIMG from "./Games/Icons/sandbox letters.png"
 import { Container } from '@material-ui/core';
 
 /**
@@ -55,6 +56,9 @@ const GamesLetters = forwardRef((props, ref) => {
           </Grid>
           <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Choose Your Letters' img={chooseLettersIMG} link='/ChooseYourLetters' difficulty='Level 2'/>
+          </Grid>
+          <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
+            <GameSelection name='Sandbox Letters' img={sandboxIMG} link='/sandboxLetters' difficulty='Level 1' />
           </Grid>
         </Grid>
       </Container>

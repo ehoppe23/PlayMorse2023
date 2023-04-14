@@ -5,7 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Grid from '@material-ui/core/Grid';
 import LearnAlphabetIMG from "./Games/LearnAlphabet.jpg" //test image (pig)
-import sandboxIMG from "./Games/Icons/sandbox letters.png"
 import hitIMG from "./Games/Icons/hitIMG.png"
 import sandBocWords from "./Games/Icons/sandbox words.png"
 import raceLevel4 from "./Games/Icons/alphabet race game 2.jpg"
@@ -53,12 +52,6 @@ const GamesThemes = forwardRef((props, ref) => {
         <Grid container justify='center' spacing={2}>
         <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Alphabet Race Game' img={raceLevel4} link='/alphabetRacePractice' difficulty='Level 3' />
-          </Grid>
-          <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
-            <GameSelection name='Sandbox Letters' img={sandboxIMG} link='/sandboxLetters' difficulty='Level 1' />
-          </Grid>
-          <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
-            <GameSelection name='Sandbox Words' img={sandBocWords} link='/sandboxWords' difficulty='Level 1' />
           </Grid>
           <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Burger Stack' img={burgerStackIMG} link='/towerStack' difficulty='Level 1' />

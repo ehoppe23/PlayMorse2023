@@ -50,7 +50,7 @@ var t;
 const SandboxLetters = forwardRef((props, ref) => {
     const history = useHistory();
     function backToGames() {
-        history.push("/GamesThemes");
+        history.push("/GamesLetters");
     }
     var [input, setInput] = React.useState('');
     var output = morseToChar(input);
@@ -203,7 +203,7 @@ const SandboxLetters = forwardRef((props, ref) => {
             <div style={{gridArea: 'top'}}>
                 <div style={{ position: 'absolute' }}>
                     <Container>
-                        <Link className='nav-link' to="/GamesThemes">
+                        <Link className='nav-link' to="/GamesLetters">
                             <button style={{
                                 height: '90%',
                                 width: '100%',

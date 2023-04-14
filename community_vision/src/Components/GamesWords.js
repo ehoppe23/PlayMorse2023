@@ -9,6 +9,7 @@ import LearnABCIMG from "./Games/Icons/learn words.png"
 import needleImg from "./Games/Icons/learn words 2.jpg"
 import unicycleImg from "./Games/Icons/learn words 3.jpg"
 import { Container } from '@material-ui/core';
+import sandBocWords from "./Games/Icons/sandbox words.png"
 
 /**
  * This file is the menu of games for
@@ -56,6 +57,9 @@ const GamesWords = forwardRef((props, ref) => {
           </Grid>
           <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Whole Word - No Prompts' img={unicycleImg} link='/learnWordAdvanced' difficulty='Level 4' />
+          </Grid>
+          <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
+            <GameSelection name='Sandbox Words' img={sandBocWords} link='/sandboxWords' difficulty='Level 1' />
           </Grid>
         </Grid>
       </Container>
