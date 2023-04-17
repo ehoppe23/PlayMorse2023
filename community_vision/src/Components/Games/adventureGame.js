@@ -167,16 +167,20 @@ const adventureGame = forwardRef((props, ref) => {
             }
             if(currentWord === "FARM") {
                 if((!pig) && (!tom)) {
+                    document.getElementById("pigID").style.visibility = "visible";
+                    document.getElementById("farmerID").style.visibility = "visible";
                     setHelperText("Great! You found Tom (-" + '\xa0\xa0\xa0' + " --- " + '\xa0\xa0\xa0' + "--) and his Pig (.--. " + '\xa0\xa0\xa0' + ".. " + '\xa0\xa0\xa0' + "--.) !")
                 } else {
+                    
                     setHelperText("You're already done here! Let's go back to the Taxi (- " + '\xa0\xa0\xa0' + ".- " + '\xa0\xa0\xa0' + "-..- " + '\xa0\xa0\xa0' + "..)")
                 }
                 checkFinishedGame();
-                setCurrentScreen("Farm");
-                setBackgroundPicture(farmImage);
+                setCurrentScreen("Barn");
+                setBackgroundPicture(barnImage);
                 clearStage();
                 setFarmScreen(true);
             }
+            
             if(currentWord === "TREES") {
                 setHelperText("You found Mel (--" + '\xa0\xa0\xa0' + " . " + '\xa0\xa0\xa0' + ".-..) and her Hen (.... " + '\xa0\xa0\xa0' + ". " + '\xa0\xa0\xa0' + "-.) !")
                 if (!mel) {
@@ -202,6 +206,8 @@ const adventureGame = forwardRef((props, ref) => {
                 clearStage();
                 setHouseScreen(true);
             }
+          
+
             if(currentWord === "HOME") {
                 setTimeout(function () {
                     setEndScreen(true);
@@ -620,13 +626,13 @@ const adventureGame = forwardRef((props, ref) => {
             <div> {/*Helper Text*/}
                 <div style={{
                     backgroundColor: "#D3D3D3",
-                    width: '50%',
+                    width: '65%',
                     height: '5vh',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     position: "absolute",
-                    marginLeft: "15vw",
+                    marginLeft: "8vw",
                     fontSize: '3vh',
                     pointer: 'default',
                     userSelect: 'none',
