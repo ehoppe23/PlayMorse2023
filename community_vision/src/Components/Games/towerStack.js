@@ -303,7 +303,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setStartScreen(false);
                                                     }
                                                 }}>
-                                            Press enter or space to start
+                                            Press Enter ('dash') to Start
                                         </button>
                                     </Card>
                                 </Grid>
@@ -367,7 +367,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setEndScreen2(false);
                                                     }
                                                 }}>
-                                            Press space or enter to restart the game
+                                            Press 'Enter' ('dash') to restart the game
                                         </button>
                                     </Card>
                                 </Grid>

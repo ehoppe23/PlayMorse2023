@@ -266,7 +266,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setStartScreen(false);
                                                     }
                                                 }}>
-                                            Press any key to start
+                                            Press Enter ('dash') to Start
                                         </button>
                                     </Card>
                                 </Grid>
@@ -328,7 +328,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setEndScreen(false);
                                                     }
                                                 }}>
-                                            Press any key to continue
+                                            Press Enter ('dash') to continue
                                         </button>
                                     </Card>
                                 </Grid>
