@@ -11,6 +11,7 @@ import raceLevel4 from "./Games/Icons/alphabet race game 2.jpg"
 import burgerStackIMG from "./Games/Icons/burgerStackIMG.PNG"
 import alphabetClearoutIMG from "./Games/Icons/alphabetClearoutIMG.png"
 import simonSaysIMG from "./Games/Icons/simonSaysIMG.jpg"
+import adventureGameIMG from "./Games/Icons/adventureGameLogo.png"
 import { Container } from '@material-ui/core';
 
 /**
@@ -57,7 +58,7 @@ const GamesThemes = forwardRef((props, ref) => {
             <GameSelection name='Burger Stack' img={burgerStackIMG} link='/towerStack' difficulty='Level 1' />
           </Grid>
           <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
-            <GameSelection name='Adventure Game' img={hitIMG} link='/adventureGame' difficulty='Level 1' />
+            <GameSelection name='Adventure Game' img={adventureGameIMG} link='/adventureGame' difficulty='Level 1' />
           </Grid>
           <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
             <GameSelection name='Alphabet Clearout' img={alphabetClearoutIMG} link='/alphabetClearout' difficulty='Level 1' />
