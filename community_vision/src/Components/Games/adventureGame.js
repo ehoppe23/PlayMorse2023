@@ -303,6 +303,10 @@ const adventureGame = forwardRef((props, ref) => {
         if (!handleKeyDown) return;
         setHandleKeyDown(false);
 
+        if (startScreen) {
+            setStartScreen(false);
+        }
+
         //If "Space"
         //".keyCode" is deprecated, but required?
         if (evt.keyCode === 32) {
@@ -311,8 +315,12 @@ const adventureGame = forwardRef((props, ref) => {
         }
         //If "Enter"
         if (evt.keyCode === 13) {
-            setInput(input + '-');
-            playDash();
+            if (startScreen) {
+                setStartScreen(false);
+            } else {
+                setInput(input + '-');
+                playDash();
+            }
         }
     };
 
