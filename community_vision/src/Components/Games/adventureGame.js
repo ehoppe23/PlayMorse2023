@@ -69,6 +69,8 @@ const adventureGame = forwardRef((props, ref) => {
     const [startScreen, setStartScreen] = useState(true);
     const [endScreen, setEndScreen] = useState(false);
 
+    const [confetti, setConfetti] = useState(0);
+
     //for confetti
     const width = 2000;
     const height = 1000;
@@ -99,6 +101,7 @@ const adventureGame = forwardRef((props, ref) => {
         setEndScreen(false);
         setStartScreen(true);
         setBackgroundPicture(cabImage);
+        setConfetti(0);
 
         //Reset object visibility
         document.getElementById("girlFarmerID").style.visibility = "hidden";
@@ -128,7 +131,7 @@ const adventureGame = forwardRef((props, ref) => {
         owlFound(false);
         melFound(false);
         tomFound(false);
-        setHelperText("There's noone here, let's go into the Taxi (-" + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + "-..-" + '\xa0\xa0\xa0' + "..)!");
+        setHelperText("There's no one here, let's go into the Taxi (-" + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + "-..-" + '\xa0\xa0\xa0' + "..)!");
     }
     
     function checkCurrentWord() {
@@ -189,6 +192,7 @@ const adventureGame = forwardRef((props, ref) => {
                 setTimeout(function () {
                     setEndScreen(true);
                 }, 3000);
+                setConfetti(1);;
                 setHelperText("Great Job! Everyone's here!");
                 setBackgroundPicture(houseImage);
                 
@@ -310,8 +314,12 @@ const adventureGame = forwardRef((props, ref) => {
         //If "Space"
         //".keyCode" is deprecated, but required?
         if (evt.keyCode === 32) {
-            setInput(input + '•');
-            playDot();
+            if (startScreen) {
+                setStartScreen(false);
+            } else {
+                setInput(input + '•');
+                playDot();
+            }
         }
         //If "Enter"
         if (evt.keyCode === 13) {
@@ -335,7 +343,7 @@ const adventureGame = forwardRef((props, ref) => {
     const [friendsLeft, setFriends] = useState(5);
     const [currentWord, setWord] = useState("");
 
-    const [helperText, setHelperText] = useState("There's noone here, let's go into the Taxi (-" + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + "-..-" + '\xa0\xa0\xa0' + "..)!");
+    const [helperText, setHelperText] = useState("There's no one here, let's go into the Taxi (-" + '\xa0\xa0\xa0' + ".-" + '\xa0\xa0\xa0' + "-..-" + '\xa0\xa0\xa0' + "..)!");
 
     //Objects, considered "Not Found", thus set to false.
     const [owl, owlFound] = useState(false);
@@ -464,7 +472,7 @@ const adventureGame = forwardRef((props, ref) => {
                                                     setStartScreen(false);
                                                 }
                                             }}>
-                                            Press Enter ('dash') to Start
+                                            Press enter or space to start
                                         </button>
                                     </Card>
                                 </Grid>
@@ -501,7 +509,6 @@ const adventureGame = forwardRef((props, ref) => {
                                 opacity: 0.7
                             }} />
                             <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
-                            <Confetti width={width} height={height}/>
                                 <Grid item xs={9} style={{ userSelect: 'none', color: fontColor }}>
                                     <Card>
                                         <br />
@@ -547,6 +554,8 @@ const adventureGame = forwardRef((props, ref) => {
                         : props => <div />
                 }
             </Transition>
+
+            
 
             <div> {/*Objects*/}
                 <img src={pigImage} id = "pigID" alt="Pig picture" style = {{
@@ -735,6 +744,13 @@ const adventureGame = forwardRef((props, ref) => {
                     -
                 </button>
             </div>
+
+            <Confetti 
+            width={width} 
+            height={height}
+            opacity = {confetti}
+            />
+
         </div>
     );
 })
