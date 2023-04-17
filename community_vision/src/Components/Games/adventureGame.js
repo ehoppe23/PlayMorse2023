@@ -472,7 +472,7 @@ const adventureGame = forwardRef((props, ref) => {
                                                     setStartScreen(false);
                                                 }
                                             }}>
-                                            Press enter or space to start
+                                            Press Enter ('dash') to Start
                                         </button>
                                     </Card>
                                 </Grid>
