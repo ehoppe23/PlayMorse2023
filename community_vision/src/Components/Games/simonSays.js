@@ -520,12 +520,12 @@ const simonSays = forwardRef((props, ref) => { //CHANGE ME
                        <Grid container direction = 'row' justify='center' alignItems='center'>
                             <h1 style={{
                                 fontSize: '4vh',
-                                backgroundColor: 'white'
+                                backgroundColor: 'transparent'
                             }}>Monsters Beaten: 
                             </h1>
                             <h1 style={{
                                 fontSize: '4vh',
-                                backgroundColor: 'white'
+                                backgroundColor: 'transparent'
                             }}> {score}
                             </h1> 
                         </Grid>
@@ -542,12 +542,12 @@ const simonSays = forwardRef((props, ref) => { //CHANGE ME
                         <Grid container direction = 'row' justify='center' alignItems='center'>
                             <h1 style={{
                                 fontSize: '4vh',
-                                backgroundColor: 'white'
+                                backgroundColor: 'transparent'
                             }}>Letters Mastered:
                             </h1>
                             <h1 style={{
                                 fontSize: '4vh',
-                                backgroundColor: 'white'
+                                backgroundColor: 'transparent'
                             }}> {lettersMastered}
                             </h1>                        
                         </Grid>
