@@ -67,17 +67,20 @@ const Home = forwardRef((props, ref) => {
             <h1 style={{ height: '100%', color: fontColor, fontWeight: 900, userSelect: 'none', cursor: 'default', lineHeight:'100%' }}>
               Welcome to Community Vision Morse Code Games!
               </h1>
+
+              <img src={studentPhoto} alt='Photo of a student using playmorse.com' id='studentPhoto' height='333'></img>
           </Grid>
 
-          <img src={studentPhoto} alt='Photo of a student using playmorse.com' id='studentPhoto' height='333'></img>
+         
 
-          <Grid item xs={8} style={{ height: '20%', paddingBottom: '1vh', paddingTop: '1vh' }}>
+          <Grid item xs={8} style={{ height: '20%', paddingBottom: '1vh', paddingTop: '1vh', background: 'transparent' }}>
             {/* directs it to the about page */}
             <Card style={{ minHeight: '100%' }} onMouseUp={() => {
               if (!dropdown) {
                 moveTo('/about');
               }
             }}>
+              
               <CardActionArea>
                 <button style={{ height: '100%', width: '100%', fontSize: '5vh', fontWeight: 900, userSelect: 'none', cursor: 'pointer', backgroundColor: '#eb6253', color: 'white', borderColor: '#eb6253' }}>About</button>
               </CardActionArea>

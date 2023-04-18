@@ -28,7 +28,7 @@ const GettingStarted = forwardRef((props, ref) => {
       color: fontColor,
 
     }}>
-      <h1 style={{ fontWeight: 900, fontSize: "50px", paddingTop: '20px' }}>Instructions and Game Descriptions</h1>
+      <h1 style={{ fontWeight: 900, fontSize: "50px", paddingTop: '3%' }}>Instructions and Game Descriptions</h1>
 
       <h2 style={{ fontWeight: 900, fontSize: "40px", textAlign: "left", paddingLeft: "10vw" }}>Recommendations:</h2>
       <h2 style={{ fontWeight: 900, fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Browser Choice and Screen Size:</h2>
@@ -111,40 +111,40 @@ const GettingStarted = forwardRef((props, ref) => {
       <br></br>
       <h2 style={{ fontweight: 600, color: "blue", textAlign: "Left", paddingLeft: "10vw", fontSize: "30px" }}>Learn Morse Basics:</h2>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>‘Explore Dot & Dash’ gives a player opportunities to discover how to make a ‘dot’ and ‘dash’ using a keyboard or switches. This is a good place to start to learn how switches (or keystrokes) work on this website.</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}><b>‘Explore Dot & Dash’</b> gives a player opportunities to discover how to make a ‘dot’ and ‘dash’ using a keyboard or switches. This is a good place to start to learn how switches (or keystrokes) work on this website.</p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>‘Dot’ and ‘Dash’ games allow you to focus on letters that have only dots in their pattern or only dashes. This may be helpful if you need to focus on using one switch at a time.</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}><b>‘Dot’ </b> and <b>‘Dash’</b> games allow you to focus on letters that have only dots in their pattern or only dashes. This may be helpful if you need to focus on using one switch at a time.</p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>‘1 – 2 Hits’ only asks for letters that use either one or two switch hits (activations). This is helpful for beginners since the Morse patterns are simpler and can be more accessible if performing multiple switch hits is challenging.</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}> <b>‘1 – 2 Hits’</b> only asks for letters that use either one or two switch hits (activations). This is helpful for beginners since the Morse patterns are simpler and can be more accessible if performing multiple switch hits is challenging.</p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>‘3 Hits’ and ‘4 Hits’ ask for letters that use three or four hits, accordingly.</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}><b>‘3 Hits’ </b> and <b>‘4 Hits’ </b> prompts the user to enter three or four Morse clicks to practice typing longer letters. </p>
 
 
     
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>‘Learn Morse Patterns’ includes the entire alphabet but presents the letters in order of Morse pattern complexity. It starts with the simplest Morse patterns (example, one ‘dot’ to make the letter E) and progresses through more complex patterns (up to 4 switch hits).</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}><b>‘Learn Morse Patterns’</b> includes the entire alphabet but presents the letters in order of Morse pattern complexity. It starts with the simplest Morse patterns (example, one ‘dot’ to make the letter E) and progresses through more complex patterns (up to 4 switch hits).</p>
 
       <br></br>
       <h2 style={{ fontweight: 900, color: "blue", fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Learn Letters:</h2>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}>'Learn the Alphabet' and 'Learn Numbers' each walks a player
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px" }}><b>'Learn the Alphabet'</b> and <b>'Learn Numbers'</b> each walks a player
         through using Morse code to type the whole alphabet or numbers 0-9.</p>
 
 
       <br></br>
       <h2 style={{ fontweight: 900, color: "blue", fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Learn Words: </h2>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>‘Learn Words’ introduces a player to Morse code to type whole words. </p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}><b>‘Learn Words’</b> introduces a player to Morse code to type whole words. </p>
 
       <br></br>
       <h2 style={{ fontweight: 900, color: "blue", fontSize: "30px", textAlign: "left", paddingLeft: "10vw" }}>Themed Games:</h2>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>'Car Race Game' presents randomized letters that need to be entered with the correct Morse pattern before the letter crossed the screen. This is for an advanced player since there are no prompts and it has a timed element!</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}> <b>'Car Race Game'</b> presents randomized letters that need to be entered with the correct Morse pattern before the letter crossed the screen. This is for an advanced player since there are no prompts and it has a timed element!</p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>‘Sandbox games' lets you explore making any ‘dot’ and ‘dash’ combinations to see what letter or word you type. There are no target letters or words to produce, only experimentation!</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}> <b>'Sandbox Games'</b> lets you explore making any ‘dot’ and ‘dash’ combinations to see what letter or word you type. There are no target letters or words to produce, only experimentation!</p>
      
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>‘Burger Stack' also lets you explore 'dot' and 'dash combinations to make any letter to add a piece to the hamburger.</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}> <b>‘Burger Stack'</b> also lets you explore 'dot' and 'dash combinations to make any letter to add a piece to the hamburger.</p>
 
-      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}>‘Alphabet Clearout' challenges the user to type every Morse letter and clear the entire alphabet!</p>
+      <p style={{ paddingLeft: "10vw", paddingRight: "10vw", fontSize: "25px", textAlign: "left" }}> <b>‘Alphabet Clearout'</b> challenges the user to type every Morse letter and clear the entire alphabet!</p>
 
       <Link className='nav-link' to="/" style={{
         backgroundColor: backgroundColor
