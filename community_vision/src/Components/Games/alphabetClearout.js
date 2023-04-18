@@ -220,7 +220,7 @@ const towerStack = forwardRef((props, ref) => {
                         ? props => <div style={{
                             position: 'absolute',
                             width: '100vw',
-                            height: '75vh',
+                            height: '90vh',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -340,7 +340,8 @@ const towerStack = forwardRef((props, ref) => {
             <div style={{gridArea: 'top'}}>
                 <div style={{ position: 'absolute' }}>
                     <Container>
-                        <Grid container justify='left'>
+                        <Grid container  
+                        justify="left">
                             <Grid item>
                                 <Link className='nav-link' to="/GamesThemes">
                                     <button style={{
@@ -400,7 +401,7 @@ const towerStack = forwardRef((props, ref) => {
                
                 
                 
-                <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right', paddingTop: '2%'}}>
+                <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right', paddingTop: '1%', paddingBottom: '-10%'}}>
                     
                     <animated.h1 id="letterA" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'A'}</animated.h1>
                     <animated.h1 id="letterB" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'B'}</animated.h1>
@@ -413,7 +414,7 @@ const towerStack = forwardRef((props, ref) => {
                     <animated.h1 id="letterI" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'I'}</animated.h1>
                  
                  </Grid> 
-                    <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right',}}>
+                    <Grid container direction='row'  position= 'relative' style={{ zIndex: 3, display: 'flex', justifyContent: 'center', alignItems: 'right'}}>
                     <animated.h1 id="letterJ" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'J'}</animated.h1>
                     <animated.h1 id="letterK" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'K'}</animated.h1>
                     <animated.h1 id="letterL" style={{ lineHeight: 0,color: fontColor, fontSize: sfSize,}}>{'L'}</animated.h1>
