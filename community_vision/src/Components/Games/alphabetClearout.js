@@ -142,6 +142,10 @@ const towerStack = forwardRef((props, ref) => {
         evt = evt || window.event;
         if (evt.keyCode === 32) { //press space
             if (startScreen) {
+                for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
+                    document.getElementById(alphabetIds[i]).style.visibility = "visible";
+                    alphabetDone[i] = false;
+                }
                 setStartScreen(false);
             } else if (endScreen ) {
                 setEndScreen(false); //exit end screen
@@ -149,6 +153,7 @@ const towerStack = forwardRef((props, ref) => {
                 setLettersCleared(0); //reset tower
                 for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
                     document.getElementById(alphabetIds[i]).style.visibility = "visible";
+                    alphabetDone[i] = false;
                 }
             } else {
                 setInput(input + '•');
@@ -158,6 +163,10 @@ const towerStack = forwardRef((props, ref) => {
 
         } else if (evt.keyCode === 13) { //press enter
             if (startScreen) { //generalized so both keys start game
+                for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
+                    document.getElementById(alphabetIds[i]).style.visibility = "visible";
+                    alphabetDone[i] = false;
+                }
                 setStartScreen(false);
             } else if (endScreen ) {
                 setEndScreen(false); //exit end screen
@@ -165,6 +174,7 @@ const towerStack = forwardRef((props, ref) => {
                 setLettersCleared(0); //reset tower
                 for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
                     document.getElementById(alphabetIds[i]).style.visibility = "visible";
+                    alphabetDone[i] = false;
                 }
             } else {
                 setInput(input + '-');
@@ -262,6 +272,10 @@ const towerStack = forwardRef((props, ref) => {
                                         <button id = "start" style={{ fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer' }}
                                                 //start button 
                                                 onMouseDown={function () { //if the user clicks with the mouse instead of space/enter
+                                                    for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
+                                                        document.getElementById(alphabetIds[i]).style.visibility = "visible";
+                                                        alphabetDone[i] = false;
+                                                    }
                                                     if (startScreen) {
                                                         setStartScreen(false);
                                                     }
@@ -324,6 +338,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setLettersCleared(0); //reset tower
                                                         for (let i = 0; i < alphabetIds.length; i++){ //reset grid visuals
                                                             document.getElementById(alphabetIds[i]).style.visibility = "visible";
+                                                            alphabetDone[i] = false;
                                                         }
                                                         setEndScreen(false);
                                                     }
