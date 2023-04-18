@@ -220,7 +220,7 @@ const towerStack = forwardRef((props, ref) => {
                         ? props => <div style={{
                             position: 'absolute',
                             width: '100vw',
-                            height: '90vh',
+                            height: '80vh',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',

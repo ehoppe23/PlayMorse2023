@@ -26,11 +26,11 @@ const About = forwardRef((props, ref) => {
       // the inital styles of the page
       position: 'relative',
       marginTop: '-6vh',
-      height: '90vh',
+      height: '80vh',
       width: '100vw',
       color: fontColor,
     }}>
-      <h1 style={{ fontWeight: 900, textSize: "60px", marginTop: "50px" }}>Who We Are</h1>
+      <h1 style={{ fontWeight: 900, textSize: "60px", marginTop: "6%" }}>Who We Are</h1>
 
       <p style={{paddingLeft: "10vw", paddingRight: "10vw", textAlign: "left", fontSize: "25px"}} >The Community Vision Assistive Technology (AT) Lab is an education and
       resource center in Portland, Oregon that promotes accessibility & inclusion
