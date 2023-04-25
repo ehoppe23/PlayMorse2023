@@ -343,7 +343,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setEndScreen(false);
                                                     }
                                                 }}>
-                                            Press Enter ('dash') to continue
+                                            Press Enter ('dash') to restart
                                         </button>
                                     </Card>
                                 </Grid>

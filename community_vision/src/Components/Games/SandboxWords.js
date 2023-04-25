@@ -204,7 +204,7 @@ const SandboxWords = forwardRef((props, ref) => {
                                                         setStartScreen(false);
                                                     }
                                                 }}>
-                                            Press Enter (dash) to Start
+                                            Press Enter ('dash') to Start
                                         </button>
                                     </Card>
                                 </Grid>

@@ -367,7 +367,7 @@ const towerStack = forwardRef((props, ref) => {
                                                         setEndScreen2(false);
                                                     }
                                                 }}>
-                                            Press 'Enter' ('dash') to restart the game
+                                            Press Enter ('dash') to restart
                                         </button>
                                     </Card>
                                 </Grid>

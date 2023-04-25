@@ -358,7 +358,7 @@ const LearnAlphabet = forwardRef((props, ref) => { //CHANGE ME
                                                     setStartScreen(false);
                                                 }
                                             }}>
-                                            Press Enter (dash) to Start
+                                            Press Enter ('dash') to Start
                                         </button>
                                     </Card>
                                 </Grid>

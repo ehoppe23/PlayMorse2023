@@ -88,7 +88,7 @@ const LearnWordsStart = (props) => {
                                                     setStartScreen(false);
                                                 }
                                             }}>
-                                            Start (-)
+                                            Press Enter ('dash') to Start
                                         </button>
                                     </Card>
                                 </Grid>
