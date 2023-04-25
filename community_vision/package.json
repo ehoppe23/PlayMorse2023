@@ -24,9 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,8 +42,5 @@
     ]
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.9.2",
-    "cypress": "^6.5.0",
-    "cypress-react-unit-test": "^3.1.0"
   }
 }
