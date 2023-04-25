@@ -481,7 +481,7 @@ const adventureGame = forwardRef((props, ref) => {
                         : props => <div />
                 }
             </Transition>
-
+            
             <Transition //End Screen
                 items={endScreen}
                 duration={500}
@@ -508,11 +508,12 @@ const adventureGame = forwardRef((props, ref) => {
                                 backgroundColor: 'black',
                                 opacity: 0.7
                             }} />
-                            <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
+                            {/* <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
                                 <Grid item xs={9} style={{ userSelect: 'none', color: fontColor }}>
                                     <Card>
                                         <br />
                                         <p style={{
+                                            
                                             marginTop: '0vh',
                                             paddingLeft: '2vw',
                                             paddingRight: '2vw',
@@ -548,14 +549,38 @@ const adventureGame = forwardRef((props, ref) => {
                                         </button>
                                     </Card>
                                 </Grid>
+                            </Grid> */}
+                            <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
+                                <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:11 }}>
+                                    <Card>
+                                        <h1 style={{
+                                            marginBottom: '0vh',
+                                            fontSize: '8vh',
+                                            zIndex: '10' 
+                                        }}>You finished inviting your friends!
+                                        </h1>
+                                        <br></br>
+                                    </Card>
+                                </Grid>
+                                <br />
+                                <Grid item style={{ userSelect: 'none' }}>
+                                    <Card>
+                                        <button id = "end2" style={{ fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer'}}
+                                                onMouseDown={function () { //same code as space/enter
+                                                    if (endScreen) { 
+                                                        resetGame();
+                                                    }
+                                                }}>
+                                            Press Enter ('dash') to restart
+                                        </button>
+                                    </Card>
+                                </Grid>
                             </Grid>
                             
                         </div>
                         : props => <div />
                 }
             </Transition>
-
-            
 
             <div> {/*Objects*/}
                 <img src={pigImage} id = "pigID" alt="Pig picture" style = {{
@@ -745,12 +770,7 @@ const adventureGame = forwardRef((props, ref) => {
                 </button>
             </div>
 
-            <Confetti 
-            width={width} 
-            height={height}
-            opacity = {confetti}
-            />
-
+            <Confetti width={width} height={height} opacity = {confetti}/>
         </div>
     );
 })

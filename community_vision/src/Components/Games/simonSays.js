@@ -455,7 +455,7 @@ const simonSays = forwardRef((props, ref) => { //CHANGE ME
                                 backgroundColor: 'black',
                                 opacity: 0.7
                             }} />
-                            <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
+                            {/* <Grid container justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 1 }}>
                                 <Confetti width={width} height={height}/>
                                 <Grid item xs={9} style={{ userSelect: 'none', color: fontColor }}>
                                     <Card>
@@ -493,6 +493,30 @@ const simonSays = forwardRef((props, ref) => { //CHANGE ME
                                                 setEndScreen(false);
                                             }}>
                                             More Practice (-)
+                                        </button>
+                                    </Card>
+                                </Grid>
+                            </Grid> */}
+                            <Grid container direction='column' justify='center' alignItems='center' style={{ height: '100%', width: '100%', zIndex: 10 }}>
+                                <Grid item style={{ userSelect: 'none', cursor: 'default', zIndex:11 }}>
+                                    <Card>
+                                        <h1 style={{
+                                            marginBottom: '0vh',
+                                            fontSize: '8vh',
+                                            zIndex: '10' 
+                                        }}>You beat the Simon Says game!
+                                        </h1>
+                                        <br></br>
+                                    </Card>
+                                </Grid>
+                                <br />
+                                <Grid item style={{ userSelect: 'none' }}>
+                                    <Card>
+                                        <button id = "end2" style={{ fontSize: '8vh', height: '100%', width: '100%', cursor: 'pointer'}}
+                                                onMouseDown={function () { //same code as space/enter
+                                                    setEndScreen(false);
+                                                }}>
+                                            Press Enter ('dash') to restart
                                         </button>
                                     </Card>
                                 </Grid>
