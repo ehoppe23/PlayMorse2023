@@ -3,8 +3,6 @@ Alphabet Clearout
 Main game file - in progress
 
 @Author: Emily Hoppe, Natalie Tashchuk
-Created: 1/__/23
-Updated: 1/__/23, 2/3/23
 */
 
 import React, { useState, forwardRef, useImperativeHandle} from 'react';
@@ -30,7 +28,7 @@ import Confetti from "react-confetti";
 var textIndex = 0;
 
 
-//For tutorial mode (probably)
+//For tutorial mode 
 function updateTutorial() {
     var space = document.getElementById('spaceImage');
     var enter = document.getElementById('enterImage');
@@ -137,8 +135,8 @@ const towerStack = forwardRef((props, ref) => {
 
     const [handleKeyDown, setHandleKeyDown] = useState(true);
     document.onkeydown = function (evt) {
-        if (!handleKeyDown) return; //
-        setHandleKeyDown(false); //
+        if (!handleKeyDown) return; 
+        setHandleKeyDown(false);
         evt = evt || window.event;
         if (evt.keyCode === 32) { //press space
             if (startScreen) {
@@ -234,7 +232,7 @@ const towerStack = forwardRef((props, ref) => {
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            zIndex: 1, //controlls how forward it is on the display
+                            zIndex: 1, //controls how forward it is on the display
                             ...props
                         }}>
                             <div id='startmenu' style={{ //visuals
